@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Java_Math_Class {
     public static void main(String[] args) {
         double integer1 = 23.3;

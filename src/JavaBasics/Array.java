@@ -1,3 +1,5 @@
+package JavaBasics;
+
 import java.util.Arrays; // import Arrays to get array specific methods
 public class Array {
     public static void main(String[] args){

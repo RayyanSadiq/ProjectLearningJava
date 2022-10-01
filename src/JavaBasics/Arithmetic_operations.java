@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Arithmetic_operations {
     public static void main(String[] args) {
         int x = 1; // since x is initialized as an integer, putting any value that's not an integer like a fraction will

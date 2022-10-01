@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Casting {
     public static void main(String[] args) {
        // implicit casting
@@ -13,7 +15,7 @@ public class Casting {
        int var5 = (int)var4 + 3; // here we are trying to perform an operation between two data types which are not
         // compatible, to fix this, we perform casting which is to change or cast a new data type to an existing variable
         // or value. We just cast var4 from a double type to becoming an integer data type. This means that var4 will be
-        // truncated and turn in to 1 instead of 1.3. This type of casting is called "Down Casting" because we are casting
+        // truncated and turn in to 1 instead of 1.3. This type of casting is called "Down JavaBasics.Casting" because we are casting
         // it to a lower data type.
        System.out.println(var5);
 

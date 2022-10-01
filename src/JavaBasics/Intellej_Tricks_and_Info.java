@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Intellej_Tricks_and_Info {
     public static void main(String[] args) {
         // In Intellej, typing "main" in a brand-new class file pulls up "public static void main(String[] args)"

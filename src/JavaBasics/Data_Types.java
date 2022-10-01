@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Data_Types {
     public static void main(String[] args) {
         // Primitive type data
@@ -14,7 +16,7 @@ public class Data_Types {
         // Reference data types
         // an important rule of Reference data types is that they need to be capitalized when referenced.
 
-        String Reference_type1 = "This is a string"; // Strings are onbly defined in double quotes
+        String Reference_type1 = "This is a string"; // JavaBasics.Strings are onbly defined in double quotes
 
         
     }

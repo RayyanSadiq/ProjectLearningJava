@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class Logical_operators {
     public static void main(String[] args) {
         boolean hasLibraryCard = true;

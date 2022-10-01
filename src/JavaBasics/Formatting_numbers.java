@@ -1,3 +1,5 @@
+package JavaBasics;
+
 import java.text.NumberFormat;
 
 public class Formatting_numbers {

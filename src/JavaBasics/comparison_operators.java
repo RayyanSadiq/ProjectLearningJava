@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class comparison_operators {
     public static void main(String[] args) {
         int x = 1;
