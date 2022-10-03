@@ -23,19 +23,19 @@ car, and in this class we will define everything we will need to know about the 
                                                              |--------------------------------------|
                                                              |                Fields                |
 So a car will have attributes like if it has                 |--------------------------------------|
-started or not, it's current speed, or even                  | *isStarted                           |
-if the head lights are on. We implement these                | *currentSpeed                        |
-attributes using fields which are basically                  | *headLightsOn                        |
+started or not, it's current speed, or what                  | *isStarted                           |
+current gear is on. We implement these                       | *currentSpeed                        |
+attributes using fields which are basically                  | *currentGear                         |
 variables defined in a class.                                |                                      |
                                                              |______________________________________|
                                                              |                Methods               |
                                                              |--------------------------------------|
 The car can also have behaviors, also known                  | *start()                             |
 as methods, like stop(), start(), brake(),                   | *stop()                              |
-headLightsOn(), and so on. When we call these                | *headLightsOn()                      |
+changeGear(), and so on. When we call these                  | *headLightsOn()                      |
 methods the state of the object also changes,                | *brake()                             |
-for example when we call start(), the value of               |______________________________________|
-the isStarted field changes.
+for example when we call changeGear(), the value of          |______________________________________|
+the currentGear field changes.
 
 So then, this car class is an object or blueprint for creating new objects, and an object is an instance of a class, so
 we can create multiple instances based on this template like car1, car2, and car3 which will all have the same fields
