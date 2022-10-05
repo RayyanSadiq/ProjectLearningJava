@@ -1,5 +1,7 @@
 package JavaBasics;
 
+import java.lang.ref.Reference;
+
 public class Data_Types {
     public static void main(String[] args) {
         // Primitive type data
@@ -15,8 +17,12 @@ public class Data_Types {
 
         // Reference data types
         // an important rule of Reference data types is that they need to be capitalized when referenced.
+        // Memory allocation in java mainly has two things, the heap where objects are stored and the stack where
+        // variables are stored. Primitive types are stored in the stack with the variable their assigned to. However,
+        // variables that hold objects are still in the stack, but the object is in the heap, this is why there called
+        // reference types because they refer to an object in the heap.
 
-        String Reference_type1 = "This is a string"; // JavaBasics.Strings are onbly defined in double quotes
+        String Reference_type1 = "This is a string"; // JavaBasics.Strings are only defined in double quotes
 
         
     }
