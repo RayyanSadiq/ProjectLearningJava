@@ -2,7 +2,7 @@ package JavaBasics;
 
 public class Intellej_Tricks_and_Info {
 
-    // on the left of this line of code there is a lightbulb, press that
+
     public static void main(String[] args) {
         // In Intellej, typing "main" in a brand-new class file pulls up "public static void main(String[] args)"
         //without having to type it manually again and again.
