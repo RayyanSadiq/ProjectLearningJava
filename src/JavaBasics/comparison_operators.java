@@ -12,5 +12,7 @@ public class comparison_operators {
         System.out.println(x <= y);
         System.out.println(x != y);
 
+        // we use Class.equals for reference types to see if they equal each other.
+
     }
 }

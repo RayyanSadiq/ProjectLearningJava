@@ -22,7 +22,7 @@ public class Data_Types {
         // variables that hold objects are still in the stack, but the object is in the heap, this is why there called
         // reference types because they refer to an object in the heap.
 
-        String Reference_type1 = "This is a string"; // JavaBasics.Strings are only defined in double quotes
+        String Reference_type1 = "This is a string"; // Strings are only defined in double quotes and are 8 bytes big
 
         
     }

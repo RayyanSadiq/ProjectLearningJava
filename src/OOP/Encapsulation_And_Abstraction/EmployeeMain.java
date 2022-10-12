@@ -1,4 +1,4 @@
-package JavaSmallProjects.EmployeeWage;
+package OOP.Encapsulation_And_Abstraction;
 
 public class EmployeeMain {
 

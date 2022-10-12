@@ -1,4 +1,4 @@
-package JavaSmallProjects.EmployeeWage;
+package OOP.Encapsulation_And_Abstraction;
 
 public class EmployeeClass {
 
@@ -54,6 +54,8 @@ public class EmployeeClass {
         this.baseSalary = baseSalary;
     }
 
+    // Getters are usally public, but since we are not using these, we are hding them with private, making the class UI
+    // more clean
     private int getBaseSalary () { // we're going to turn this method to private to reduce coupling and making the ui
         // simpler
         return baseSalary;

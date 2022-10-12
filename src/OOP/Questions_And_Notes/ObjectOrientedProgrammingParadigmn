@@ -117,6 +117,18 @@ more our classes are coupled, the more costly changing is going to be. This is w
 as we can.
 
 
+The Encapsulation and Abstraction directory covers:
+- creating classes
+- creating objects
+- memory allocation
+- Encapsulation
+- getters and setters
+- Abstraction
+- coupling
+- reducing coupling
+- method overloading
+- constructor overloading
+- static members
 
 
 
