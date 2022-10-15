@@ -4,9 +4,9 @@ import java.util.Arrays; // import Arrays to get array specific methods
 public class Array {
     public static void main(String[] args){
 
-    int [] array = new int[5]; // an array can be any data type however after creating the array, and it's
+    String [] array = new String[5]; // an array can be any data type however after creating the array, and it's
     // properties, it cannot be altered besides the values the arrays hold.
-    array[1] = 4; // Arrays values can be changes by referring a certain index who values of which you want to change
+    array[1] = "wer"; // Arrays values can be changes by referring a certain index who values of which you want to change
     System.out.println(Arrays.toString(array)); //To print out Arrays, you must use the "toString" method to print out
 
     int [] array2 = {1,2,56,32,2};
