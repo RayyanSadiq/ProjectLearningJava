@@ -1,11 +1,11 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part2;
 
 public class TextBox extends UIControl {
 
-    /*protected String text; -- the code on the left uses the protected access modifier which makes it so as long as the
-    file this field is being called in is within the same package, it is accessible, otherwise it is not. Using this
-    modifier is looked down upon as a bad practice. The default access modifier is also a bad practice, we should only
-    use private and public. */
+    /*protected String text; -- the code on the left uses the protected access modifier which makes it so that it is
+    private, but the member is heritable. Using this type of modifier is looked as a bad practice, because it is
+    confusing to use*/
+
     private String text; // private members are not inherited
 
     public TextBox () {

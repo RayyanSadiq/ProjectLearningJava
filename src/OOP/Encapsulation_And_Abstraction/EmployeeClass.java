@@ -54,7 +54,7 @@ public class EmployeeClass {
         this.baseSalary = baseSalary;
     }
 
-    // Getters are usally public, but since we are not using these, we are hding them with private, making the class UI
+    // Getters are usually public, but since we are not using these, we are hiding them with private, making the class UI
     // more clean
     private int getBaseSalary () { // we're going to turn this method to private to reduce coupling and making the ui
         // simpler

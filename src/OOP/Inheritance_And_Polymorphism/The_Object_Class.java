@@ -8,7 +8,7 @@ public class The_Object_Class {
 
         obj.getClass(); // gets all the methods and fields defined in an object
         obj.equals(obj); // this compares if two objects are the same, so we would use this to compare two strings
-        obj.hashCode(); // returns an integer base don the address of this object in memory
+        obj.hashCode(); // returns an integer based on the address of this object in memory
         obj.toString(); // returns the string representation of an object
     }
 }

@@ -1,6 +1,8 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part2;
 
-public class CheckBox extends UIControl{
+import OOP.Inheritance_And_Polymorphism.Part2.UIControl;
+
+public class CheckBox extends UIControl {
 
     public CheckBox() {
         super(false);

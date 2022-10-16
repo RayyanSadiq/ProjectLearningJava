@@ -1,6 +1,4 @@
-package OOP.Inheritance_And_Polymorphism;
-
-import javax.swing.plaf.synth.SynthOptionPaneUI;
+package OOP.Inheritance_And_Polymorphism.Part1;
 
 public class MainPoint {
     public static void main(String[] args) {

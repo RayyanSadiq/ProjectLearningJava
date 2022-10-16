@@ -1,9 +1,10 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part2;
 
 public class MainUI_1 {
     public static void main(String[] args) {
         // var control = new UIControl(false);
         var textBox = new TextBox();
+
         show(textBox); // here we have a type of upcasting, since textBox is cast to UIControl. So this object is
         // being cast to its parent type. Which means this variable will enter as UIControl class in the method, but
         // it will remain a TextBox class everywhere else.

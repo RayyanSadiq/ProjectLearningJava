@@ -1,4 +1,4 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part1;
 
 import java.util.Objects;
 
@@ -13,9 +13,10 @@ public class PointClass {
     }
 
     @Override
-    public boolean equals(Object obj) { // here we are overriding the equals method that is inherited from the built-
-        // in object class since it only compares the addresses of two objects, we want to see if the coordinate points
-        // are the same and return a boolean based on that, to do that we must override the equals method for this class
+    public boolean equals(Object obj) { // here we are overriding the equals method that is inherited from the
+        //built-in object class since it only compares the addresses of two objects, we want to see if the coordinate
+        // points are the same and return a boolean based on that, to do that we must override the equals method
+        // for this class
 
         // Tip: don't change the parameters of a method when overriding a method otherwise the "signature" will be ruined
         // and the override will cause an error.
@@ -39,8 +40,8 @@ public class PointClass {
     // violation of the general contract for Object.hashCode(), which will prevent your class from functioning properly
     // in conjunction with all hash-based collections, including HashMap, HashSet, and Hashtable.
     public int hashCode() {
-        return Objects.hash(x,y); // we want to generate a hashcode based on the contents of these objects, which are x
-        // and y.
+        return Objects.hash(x,y); // when overriding hashCode we want to generate a hashcode based on the contents of
+        // these objects, which are x and y.
 
         // We do this by calling the "Objects" class, which is a class in the java.util package, and use a method it has
         // called hash. This method generates a hash value, which takes in values and maps them to a hash value. We put

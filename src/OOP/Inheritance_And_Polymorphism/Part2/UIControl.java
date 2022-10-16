@@ -1,4 +1,4 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part2;
 
 import java.util.Objects;
 import java.util.function.BinaryOperator;
@@ -8,7 +8,7 @@ public abstract class UIControl extends Object { //here UIControl class is inher
     // object besides the class they were created from.
 
     // here the UIControl class is to provide some common code for its subclasses, we don't want to instantiate it, so in
-    // this case we use the "abstract" keyword to make it so we cannot instantiate it, only to make heritable to other
+    // this case we use the "abstract" keyword to make it, so we cannot instantiate it, only to make heritable to other
     // descendant classes.
     private boolean isEnabled;
 

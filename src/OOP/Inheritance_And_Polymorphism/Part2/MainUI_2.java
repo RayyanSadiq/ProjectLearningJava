@@ -1,4 +1,4 @@
-package OOP.Inheritance_And_Polymorphism;
+package OOP.Inheritance_And_Polymorphism.Part2;
 
 public class MainUI_2 {
     public static void main(String[] args) {
