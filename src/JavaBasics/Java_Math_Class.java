@@ -10,6 +10,8 @@ public class Java_Math_Class {
         System.out.println(integer2);
         System.out.println(Math.random() * 100); // Math.random gives any value between 0 and 1, we multiply the random
         // chosen value to make any random number from 0 to 100, and we could take it even further from 0 to 1000, and so on
+        System.out.println((int) (Math.random()*15)+1); // prints a value 1 to 15 including 1 and 15. It also truncates
+        // it, giving us an int result, or A result with no decimal values.
 
 
 

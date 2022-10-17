@@ -20,11 +20,13 @@ public class Strings {
         System.out.println("look its a backslash = \\");
         System.out.println("with back slash we can go print quotes and double quotes in strings,\'\"\nwe can also go to the next line ");
 
-
-
-
+        System.out.println(message.substring(0,3).toUpperCase());
         // Like many other languages, when indexing iterables, the index position ranges from [0-infinty], it starts
         // from 0, not 1.
+
+        System.out.println(message.substring(0,2) + message.substring(message.length() -2));
+        int position = message.indexOf("orl");
+        System.out.println(message.substring(position));
 
 
 

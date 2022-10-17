@@ -8,7 +8,7 @@ public class Creating_methods {
     }
 
     public static void greet1(String firstName, String lastName) { // each method has a signature, a signature is a
-        // method's number of, type of, and order of parameters. Changing single one of these changes the parameters.
+        // method's number of, type of, and order of parameters. Changing single one of these, changes the parameters.
         System.out.println("Greetings " + firstName + " " + lastName);
     }
 

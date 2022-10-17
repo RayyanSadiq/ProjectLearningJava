@@ -3,7 +3,7 @@ package JavaBasics;
 public class Casting {
     public static void main(String[] args) {
        // implicit casting
-       // This is when a smaller data type can fit into a larger data_type, therefore not allowing any data to be lossed
+       // This is when a smaller data type can fit into a larger data_type, therefore not allowing any data to be loosed
        // byte -> short -> int -> long
        byte var1 = 12;
        int var2 = var1 + 100000 ;
