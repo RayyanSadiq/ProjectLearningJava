@@ -1,7 +1,8 @@
-package OOP.Interfaces.TaxCalculatorProject;
+package OOP.Interfaces.TypesOfDependencyInjection;
+
+import OOP.Interfaces.TypesOfDependencyInjection.TaxCalculator;
 
 public class BaseTaxCalculator implements TaxCalculator {
-
     private double taxableIncome;
 
     public BaseTaxCalculator(double taxableIncome) {
