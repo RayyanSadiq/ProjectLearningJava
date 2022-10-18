@@ -16,7 +16,7 @@ public abstract class UIControl extends Object { //here UIControl class is inher
         this.isEnabled = isEnabled;
     }
 
-    public abstract void render(); //here we make this method abstract, which means all the class that inherit this
+    public abstract void render(); //here we make this method abstract, which means all the classes that inherit this
         // class will have to make themselves abstract or have the abstract method overridden in them
 
     public final void printHash(Object obj) { // final methods cannot be overridden

@@ -10,7 +10,7 @@ public class TextBox extends UIControl {
 
     public TextBox () {
         super(false); // here we use super to refer to the class that is being inherited
-        // from, we pass on the value through here and since we are only calling super by itself its calling thr constructor of the parent class.
+        // from, we pass on the value through here and since we are only calling super by itself its calling the constructor of the parent class.
         // This should also be the very first statement in a class that is inheriting.
         text = "";
     }

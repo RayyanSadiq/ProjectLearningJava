@@ -7,13 +7,13 @@ public class MainUI_1 {
 
         show(textBox); // here we have a type of upcasting, since textBox is cast to UIControl. So this object is
         // being cast to its parent type. Which means this variable will enter as UIControl class in the method, but
-        // it will remain a TextBox class everywhere else.
+        // it will remain a TextBox class by default
     }
 
     public static void show (UIControl control) {
         /* here we are down-casting the textBox variable which used to be a TextBox
         class that is now a UIControl class thanks to upcasting. However, in the case we want to use some
-        TextBox class methods, we down-cast it by making it a TextBox class again by casting the given value in the
+        TextBox class methods, we down-cast it by making it a TextBox class again by casting the given object in the
         control argument.
 
         However, this only works for objects that are originally made as a TextBox objects. This is

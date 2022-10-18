@@ -33,4 +33,4 @@ What is meant by the word "Dependency" is that a Java class has a dependency on 
 of this class. This means we should apply this concept and interfaces to anytime we make another class use another
 instance of a class to decouple our code and program.
 
-According to the dependency Injection concept our classes should not inst
+According to the dependency Injection concept our classes should not instantiate their dependencies

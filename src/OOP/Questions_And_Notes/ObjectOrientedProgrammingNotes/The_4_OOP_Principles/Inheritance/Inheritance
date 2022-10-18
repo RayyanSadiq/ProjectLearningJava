@@ -21,7 +21,7 @@ synonyms for descendant classes are:
 - offspring
 - class that is inheriting from
 
-The subclass can add its own fields and methods in addition to the superclass fields and methods.
+The subclass can add its own fields and methods in addition to the superclass fields and methods(that are public).
 
 ------------------------------------------------------------------------------------------------------------------------
 Important facts about inheritance in Java
@@ -32,8 +32,7 @@ Default superclass: Except Object class, which has no superclass, every class ha
 Object class.
 
 Superclass can only be one: A superclass can have any number of subclasses. But a subclass can have only one superclass.
-This is because Java does not support multiple inheritances with classes. Although with interfaces, multiple
-inheritances are not supported by java.
+This is because Java does not support multiple inheritances with classes.
 
 Inheriting Constructors: A subclass inherits all the members (fields, methods, and nested classes) from its superclass.
 Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be

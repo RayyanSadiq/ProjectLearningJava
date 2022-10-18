@@ -21,7 +21,7 @@ public class EmployeeClass {
         number of parameters. To accomplish this we use the same logic as the second constructor and use it here by
         referring to it as "this", since "this" represents the current object. So we use "this()" and give in 2
         parameters to call the original constructor that takes in two arguments and give in a default value to the
-        parameter not filled when this constructor was initially called.*/
+        parameter not filled .*/
         this(baseSalary,0);
     }
 

@@ -2,10 +2,10 @@ package OOP.Interfaces.TaxCalculatorProject;
 
 public class TaxReport {
 
-    private TaxCalculator calculator;
+    private BaseTaxCalculator calculator;
 
-    public TaxReport() {
-        this.calculator = new TaxCalculator(1000);
+    public TaxReport(BaseTaxCalculator calculator) {
+        this.calculator = calculator;
     }
 
     public void showTax() {
