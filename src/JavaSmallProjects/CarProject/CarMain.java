@@ -1,27 +1,21 @@
 package JavaSmallProjects.CarProject;
+import java.util.Scanner;
 
 public class CarMain {
     public static void main(String[] args) {
+        var input = new Scanner(System.in);
 
-        var car = new CarClass("tesla","123",false,2);
+        int x=1;
+        System.out.println("Welcome to car creator. type any of the commands below");
+        var car = new CarClassV2("None","None",false,0);
+        while (x>1) {
+            System.out.println("Set info");
+            System.out.println("Get info");
+            System.out.println("End");
+            String userInput = input.nextLine();
+            System.out.println("\n");
 
-        try {
-            car.removePassengers(-3);
+
         }
-        catch (IllegalArgumentException ex) {
-            System.out.println("The argument given is invalid, try again");
-        }
-
-        car.getInfo();
-        System.out.println(CarLib.isRealBrand(CarLib.capitalize("Dodge")));
-
-        System.out.println("\n");
-
-        car.addNewPassengers(50);
-        car.setModel(792);
-        car.setIsConvertible(true);
-        car.setBrand("Lincoln");
-        car.getInfo();
-
     }
 }

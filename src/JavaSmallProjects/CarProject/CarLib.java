@@ -21,7 +21,9 @@ public class CarLib {
                 "Chevrolet",
                 "Cadillac",
                 "Buick",
-                "Arch Motorcycles"
+                "Arch Motorcycles",
+                "None"
+
         };
 
         for (String carBrand : realBrands) {
