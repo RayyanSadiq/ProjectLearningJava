@@ -4,7 +4,7 @@ public class CarLib {
 
     public static boolean isRealBrand(String brand) {
 
-        boolean isExist = false;
+        boolean isExists = false;
 
         String [] realBrands = {
                 "Ural",
@@ -26,11 +26,11 @@ public class CarLib {
 
         for (String carBrand : realBrands) {
             if (carBrand.equals(brand)) {
-                isExist = true;
+                isExists = true;
                 break;
             }
         }
-        return isExist;
+        return isExists;
     }
 
    public static String capitalize(String string){

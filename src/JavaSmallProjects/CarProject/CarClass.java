@@ -7,11 +7,11 @@ public class CarClass {
     private boolean isConvertible;
     private int numPassengers;
 
-    public CarClass (String brand, String model, boolean isConvertible, int numPassenger) {
+    public CarClass (String brand, String model, boolean isConvertible, int numPassengers) {
         setBrand(brand);
         setModel(model);
         setIsConvertible(isConvertible);
-        setNumPassengers(numPassenger);
+        setNumPassengers(numPassengers);
     }
 
     public void setBrand(String brand) {
