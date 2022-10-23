@@ -53,5 +53,6 @@ public class CarClassV2 implements CarClass {
         System.out.println("Car: " + brand + " " + model) ;
         System.out.println(isConvertible == true ?  "It is a convertible" : "It is not a convertible");
         System.out.println("Car Passenger Count: " + numPassengers);
+
     }
 }

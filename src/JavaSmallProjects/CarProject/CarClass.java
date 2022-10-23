@@ -1,7 +1,6 @@
 package JavaSmallProjects.CarProject;
 
-public interface CarClass {
-
+public interface CarClass extends Gettable {
 
     void setBrand(String brand);
 
@@ -13,5 +12,5 @@ public interface CarClass {
 
     void setNumPassengers(int numPassengers);
 
-    void getInfo();
+
 }
