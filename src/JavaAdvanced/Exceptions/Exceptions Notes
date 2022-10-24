@@ -1,0 +1,77 @@
+Exception Handling in Java is one of the effective means to handle the runtime errors so that the regular flow of the
+application can be preserved. Java Exception Handling is a mechanism to handle runtime errors such as
+ClassNotFoundException, IOException, SQLException, RemoteException, etc.
+
+Exception is an unwanted or unexpected event, which occurs during the execution of a program, i.e. at run time, that
+disrupts the normal flow of the program’s instructions. Exceptions can be caught and handled by the program. When an
+exception occurs within a method, it creates an object. This object is called the exception object. It contains
+information about the exception, such as the name and description of the exception and the state of the program when the
+exception occurred.
+------------------------------------------------------------------------------------------------------------------------
+We have three types of exceptions:
+
+Checked Exceptions -> are exceptions that should always be caught, no exceptions, pun intended. That means if we want
+our exceptions to be caught, then we must throw Checked exceptions as the error will be highlighted at compile time and
+the compiler will enforce us to handle them.
+
+Unchecked Exceptions(Runtime Exceptions) --> aka runtime exceptions are exceptions that are checked by the compiler at
+compile time, hence why they are called unchecked exceptions, one thing i want to make clear is that they are
+PROGRAMMING ERRORS, so if we want to make our program halt, then we throw Unchecked exceptions. We don't want to
+ANTICIPATE or RECOVER or CATCH a unchecked exceptions, we should prevent them from happening in the fireplace. Think of
+them as a way to show programmers that there is a programming mistake in the code
+
+Errors -> We have errors which are exceptions that occur external from our applications like out of memory errors a
+problem with our JVM(Java Virtual Machine), etc
+------------------------------------------------------------------------------------------------------------------------
+At the top of the exception hierarchy in Java, we have the throwable class which defines all common characteristics for
+all exceptions and errors. The Exception and Errors class derive from the Throwable class, and the runtime exception
+class derives from the Exception class.
+
+                                         ---> Throwable <---
+                                        |    (checked)     |
+                                        |                  |
+                                        |                  |
+                                ---> Exception           Error
+                                |    (checked)        (unchecked)
+                                |
+                          RuntimeException
+                            (unchecked)
+
+
+---------------------------------------Rules and principles of catching Exceptions--------------------------------------
+Catching an exception is when an exception occurs and we want to catch and then do something with the exception like
+sharing to the user if something is not working, trying a process again, logging an exception, etc. Catching and
+ignoring any exception, however, is extremely bad practice.
+
+RuntimeException is intended to be used for programmer errors. As such it should never be caught. There are a few cases
+where it should be caught, but 99% of the time, these exceptions should not be caught. Only throw RuntimeExceptions
+when you want to signal that a programming mistake has occurred
+
+Always use a checked exception if you want to handle it and catch it in the future. In case you cannot find an exception
+associated for the exceptional event, and  you expect the program to be able to recover from by itself, then a custom
+exception is the best idea. You make a custom exception by making a new class and extending it to the "Exception" class
+if you want it to be a checked exception, otherwise you would extend it  to the "RunTimeExceptionClass" if you would
+want it to be a custom Unchecked Exception.
+
+--------------------------------------------------Throwing Exceptions---------------------------------------------------
+In terms of throwing Exceptions you think of throwing a RuntimeException or Unchecked Exception as stopping against a
+red stop sign. When you see it, you have to STOP. The ideology of encountering a unchecked exception is that we should
+NOT HANDLE it with a try catch block, instead go to the source of the error and fix it, since it is a PROGRAMMING MISTAKE.
+
+Throwing an checked exception is like throwing a yield sign, the program wont stop, it will catch or recover from it and
+then continue.
+________________________________________________________________________________________________________________________
+Other Notes:
+--> In the case with rethrowing, we want to make sure that when we catch the exception is the first place, we have a
+reason for catching it and not just ignoring. If we are just catching to rethrow, then their is NO POINT in rethrowing
+in the first place, just add the "throws" keyword to the method's signature.
+
+--> Keep in mind that the "throws exception" is actually part of the method's signature
+
+
+
+Unchecked or Runtime Exceptions:
+ArithmeticException  - get thrown when we try to divide a value by zero
+IllegalArgumentException - gets thrown when a given argument is not accepted
+IndexOutOfBoundsException - happens we try to access an index that does not exists
+

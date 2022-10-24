@@ -1,4 +1,5 @@
 package JavaSmallProjects.CarProject;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CarMain {
@@ -7,6 +8,7 @@ public class CarMain {
 
         int x=0;
         System.out.println("Welcome to car creator. type any of the commands below");
+
         var car = new CarClassV2("None","None",false,0);
         while (x<1) {
             System.out.println("Set info");
@@ -15,13 +17,12 @@ public class CarMain {
             System.out.println("\ncommand:");
             String userInput = input.nextLine();
             System.out.println("\n");
-            CarLib.process(userInput, car, x);
 
-
-
-
-
-
+            try {
+                CarLib.process(userInput, car );
+            } catch (IOException | NotRealBrandException e) {
+                System.out.println(e.getMessage() + ", try again\n");
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package JavaSmallProjects.CarProject;
 
+import java.io.IOException;
+
 public class CarClassV2 implements CarClass {
 
     private String brand;
@@ -8,17 +10,29 @@ public class CarClassV2 implements CarClass {
     private int numPassengers;
 
 
-    public CarClassV2(String brand, String model, boolean isConvertible, int numPassengers) {
-        setBrand(brand);
+    public CarClassV2(String brand, String model, boolean isConvertible, int numPassengers)  {
+
+        try {
+            setBrand(brand);
+        } catch (NotRealBrandException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
         setModel(model);
         setIsConvertible(isConvertible);
-        setNumPassengers(numPassengers);
+        try {
+            setNumPassengers(numPassengers);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
-    public void setBrand(String brand) {
+    public void setBrand(String brand) throws NotRealBrandException {
         if (!CarLib.isRealBrand(CarLib.capitalize(brand))) {
-            throw new IllegalArgumentException( brand + " is not a real brand");
+            throw new NotRealBrandException( brand + " is not a real brand");
         }
         this.brand = CarLib.capitalize(brand);
     }
@@ -40,9 +54,9 @@ public class CarClassV2 implements CarClass {
     }
 
     @Override
-    public void setNumPassengers(int numPassengers) {
+    public void setNumPassengers(int numPassengers) throws IOException {
         if (numPassengers < 0) {
-            throw new IllegalArgumentException("number of passengers cannot be below zero");
+            throw new IOException("number of passengers cannot be below zero");
         }
         this.numPassengers = numPassengers;
     }

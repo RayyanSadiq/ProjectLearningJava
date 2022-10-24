@@ -1,8 +1,10 @@
 package JavaSmallProjects.CarProject;
 
+import java.io.IOException;
+
 public interface CarClass extends Gettable {
 
-    void setBrand(String brand);
+    void setBrand(String brand) throws NotRealBrandException;
 
     void setModel(String model);
 
@@ -10,7 +12,7 @@ public interface CarClass extends Gettable {
 
     void setIsConvertible(boolean convertible);
 
-    void setNumPassengers(int numPassengers);
+    void setNumPassengers(int numPassengers) throws IOException;
 
 
 }

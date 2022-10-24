@@ -8,8 +8,8 @@ import java.text.SimpleDateFormat;
 public class Catching_Exceptions { // An exception is an object that contains information about an error
 
     /* There are three types of exceptions:
-    - Checked exceptions are exceptions that are checked by the compiler at compile time
-    - Unchecked exceptions occur during the runtime of the program
+    - Checked exceptions are exceptions that are checked by the compiler at compile time, we should ALWAYS catch these
+    - Unchecked exceptions occur during the runtime of the program, do not catch these, they are intended to signal programming mistakes
     - errors which is the third type of exception, which indicates an error external to our application like out of
       memory errors or stack overflow
     */
@@ -27,7 +27,9 @@ public class Catching_Exceptions { // An exception is an object that contains in
 
             // Also keep in mind that if an exception that is a derivative of another exception is placed second behind
             // the parent exception, it will cause an error, so order does matter, which means we want to put the more
-            // general exceptions last, with the more specific exception catchers first.
+            // general exceptions last, with the more specific exception catchers first. The FileNotFoundException is a derivative of
+            // the IOException, which means if the catcher for IOException is above the FileNotFoundException, their will be a
+            // compile time error
             System.out.println("file not found");
         }
         catch (IOException ex) { // FileNotFoundException is a part of the IOException, so if you want throw a same catcher for
@@ -38,6 +40,7 @@ public class Catching_Exceptions { // An exception is an object that contains in
             // catch (IOException | ParseException ex) in case you want to deal with all exceptions the same way.
             System.out.println("hey no parsing");
         }
+
     }
 
 }
