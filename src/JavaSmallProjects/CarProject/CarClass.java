@@ -12,7 +12,7 @@ public interface CarClass extends Gettable {
 
     void setIsConvertible(boolean convertible);
 
-    void setNumPassengers(int numPassengers) throws IOException;
+    void setNumPassengers(int numPassengers) throws NegativeNumberException;
 
 
 }

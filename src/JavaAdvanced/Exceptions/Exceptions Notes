@@ -12,13 +12,14 @@ We have three types of exceptions:
 
 Checked Exceptions -> are exceptions that should always be caught, no exceptions, pun intended. That means if we want
 our exceptions to be caught, then we must throw Checked exceptions as the error will be highlighted at compile time and
-the compiler will enforce us to handle them.
+the compiler will enforce us to handle them. Checked errors should be used in an exceptional event in which we should
+ANTICIPATE and RECOVER from.
 
 Unchecked Exceptions(Runtime Exceptions) --> aka runtime exceptions are exceptions that are checked by the compiler at
 compile time, hence why they are called unchecked exceptions, one thing i want to make clear is that they are
 PROGRAMMING ERRORS, so if we want to make our program halt, then we throw Unchecked exceptions. We don't want to
 ANTICIPATE or RECOVER or CATCH a unchecked exceptions, we should prevent them from happening in the fireplace. Think of
-them as a way to show programmers that there is a programming mistake in the code
+them as a way to show programmers that there is a programming mistake in the code.
 
 Errors -> We have errors which are exceptions that occur external from our applications like out of memory errors a
 problem with our JVM(Java Virtual Machine), etc
@@ -60,15 +61,19 @@ NOT HANDLE it with a try catch block, instead go to the source of the error and 
 
 Throwing an checked exception is like throwing a yield sign, the program wont stop, it will catch or recover from it and
 then continue.
-________________________________________________________________________________________________________________________
-Other Notes:
+___________________________________________________Other Notes__________________________________________________________
+
 --> In the case with rethrowing, we want to make sure that when we catch the exception is the first place, we have a
 reason for catching it and not just ignoring. If we are just catching to rethrow, then their is NO POINT in rethrowing
 in the first place, just add the "throws" keyword to the method's signature.
 
 --> Keep in mind that the "throws exception" is actually part of the method's signature
 
+--> Chaining functions is a technique used in frameworks and libraries a lot. Its so we get a more general purpose exception
+and then we can also get the cause of that general exception, which would be a more specific exception.
 
+
+------------------------------------------------------------------------------------------------------------------------
 
 Unchecked or Runtime Exceptions:
 ArithmeticException  - get thrown when we try to divide a value by zero

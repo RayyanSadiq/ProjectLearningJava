@@ -1,6 +1,5 @@
 package JavaSmallProjects.CarProject;
 
-import java.io.IOException;
 
 public class CarClassV2 implements CarClass {
 
@@ -22,7 +21,7 @@ public class CarClassV2 implements CarClass {
         setIsConvertible(isConvertible);
         try {
             setNumPassengers(numPassengers);
-        } catch (IOException e) {
+        } catch (NegativeNumberException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
@@ -54,9 +53,9 @@ public class CarClassV2 implements CarClass {
     }
 
     @Override
-    public void setNumPassengers(int numPassengers) throws IOException {
+    public void setNumPassengers(int numPassengers) throws NegativeNumberException {
         if (numPassengers < 0) {
-            throw new IOException("number of passengers cannot be below zero");
+            throw new NegativeNumberException("number of passengers cannot be below zero");
         }
         this.numPassengers = numPassengers;
     }

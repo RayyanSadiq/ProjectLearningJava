@@ -20,7 +20,7 @@ public class CarMain {
 
             try {
                 CarLib.process(userInput, car );
-            } catch (IOException | NotRealBrandException e) {
+            } catch (NotRealBrandException| NegativeNumberException e) {
                 System.out.println(e.getMessage() + ", try again\n");
             }
         }
