@@ -9,11 +9,18 @@ public class User implements Comparable<User> {
     }
 
     @Override
+    public String toString() { // this is being used in the generic methods folder
+        return "Points:" + points;
+    }
+
+    @Override
     public int compareTo(User other) {
         // the purpose of the compareTo method is that if:
         // this.variable < other.variable, then return -1
         // this.variable == other.variable, then return 0
         // this.variable > other.variable, then return 1
         return points - other.points;
+
+
     }
 }

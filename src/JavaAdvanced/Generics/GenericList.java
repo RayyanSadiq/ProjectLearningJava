@@ -1,6 +1,6 @@
 package JavaAdvanced.Generics;
 
-public class GenericList <T extends Number> { // so we make our class generic by adding the angled bracket "<>" and then inserting a
+public class GenericList <T /*extends Number*/> { // so we make our class generic by adding the angled bracket "<>" and then inserting a
     // parameter in there as well, which could be any letter, but T is a common convention. Another convention is "E".
     // When we initialize this class, we have to specify a value for this parameter. "T" will be whatever data type is
     // passed on. we also have something called constraints where T is extended to the number class, which means it can
