@@ -1,4 +1,4 @@
-package JavaAdvanced.Generics.TheProblemAndThePoorSoloution;
+package JavaAdvanced.Generics;
 
 public class KeyValuePairClass <K, V> { // multiple parameters for generics in classes
 
