@@ -8,8 +8,8 @@ public class PrintCommands_and_Java_Anatomy { // public is a type of access modi
 
     public static void main(String[] args) {  // This is how we define a method in java. A method in java is a function
         // in a class. Coding languages like python can have functions outside of classes. static is something we'll
-        // cover later. Void is a return-type value that returns nothing, hence void. The first method must be named
-        // "main" and the first letter of "main" must always be lower cased. The first method must always have (String[]
+        // cover later. Void is a return-type value that returns nothing, hence void. To execute code, we must make a
+        // "main" method. The first letter of "main" must always be lower cased. The first method must always have (String[]
         // args) in the parameters.
 
         System.out.print("Hello world"); // System.out.print is the statement that prints out a value on to the output

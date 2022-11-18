@@ -12,7 +12,7 @@ public class Formatting_numbers {
         String result2 = percentage.format(123.456);
         System.out.println(result2);
 
-            NumberFormat Integer = NumberFormat.getIntegerInstance();
+        NumberFormat Integer = NumberFormat.getIntegerInstance();
         String result3 = Integer.format(123.456);
         System.out.println(result3);
     }

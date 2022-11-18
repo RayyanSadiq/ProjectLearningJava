@@ -44,14 +44,14 @@ public class Strings {
 
         //------------------------------------------Compare to method-------------------------------------------------\\
 
-        String string1  = "hello"; // learn compare to and the API of i
+        String string1  = "hello";
         String string2 = "hello";
         String string3 = "me";
 
         System.out.println(string1.compareTo(string2));
-
-
-
+        // if compareTo value = 0, then both values being compared are equal, otherwise if its positive that means
+        // it is greater than the value it is being compared to. If it's negative, then it the value it is being comapred
+        // to is less than it
 
 
     }
