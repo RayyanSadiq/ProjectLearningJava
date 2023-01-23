@@ -1,6 +1,6 @@
-package JavaSmallProjects.Unit3CW;
+package JavaSmallProjects.Unit3Projects;
 
-public class Unit3Methods {
+public class Unit3CWMethods {
 
     public static void ageAbility(int age) {
 

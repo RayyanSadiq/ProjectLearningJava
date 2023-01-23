@@ -10,7 +10,7 @@ public class Arithmetic_operations {
         System.out.println(x + y);
         System.out.println(x - y);
         System.out.println(x * y);
-        //System.out.println(x / y); // this will cause an error since its 1/0, a variable that's not a double, will
+        //System.out.println(x / y); // this will cause an error since its 1/0. A variable that's not a double, will
         // raise this error, however declaring it as a double to fix this problem is considered a bad practice.
         // keep in mind 0/1 will not raise an error since they are zero ones inside in a zero.
 

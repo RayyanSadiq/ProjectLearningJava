@@ -16,6 +16,7 @@ public class Main {
         // (int), which makes the code more noisy. Then there is chance the value at the index we are trying to assign
         // to a int variable might not be an integer data type, so then that would cause a casting error, and we would
         // not know about it till runtime
+        System.out.println(number);
 
         // Generic classes help us solve all these problems.
     }

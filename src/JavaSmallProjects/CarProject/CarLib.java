@@ -3,9 +3,6 @@ import java.io.IOException;
 import java.util.Scanner;
 public class CarLib {
 
-    public static int increment(int counter) {
-        return counter;
-    }
     public static void process(String userInput, CarClass car ) throws NotRealBrandException, NegativeNumberException {
         if (userInput.toLowerCase().equals("set info")) {
             var input = new Scanner(System.in);
