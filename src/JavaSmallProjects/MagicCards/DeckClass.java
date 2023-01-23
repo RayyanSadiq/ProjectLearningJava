@@ -25,10 +25,14 @@ public class DeckClass {
     }
 
     public void setCards(String deckModel){
-        for (CardClass card: this.cards) {
-            card.setCardModel(deckModel);
+        if (cards[0]== null){
+            System.out.println("There are no cards in the deck to set");
         }
-
+        else {
+            for (CardClass card : this.cards) {
+                card.setCardModel(deckModel);
+            }
+        }
     }
 
 

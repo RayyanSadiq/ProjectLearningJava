@@ -20,7 +20,7 @@ public class CardClass {
     }
 
     public void setCardModel (String modelName) {
-        cardModel = new File("src\\JavaSmallProjects\\MagicCards\\"+modelName+"\\"+this.name+".jpg");
+        cardModel = new File("src\\JavaSmallProjects\\MagicCards\\CardModels"+modelName+"\\"+this.name+".jpg");
     }
 
     public String getName(){
