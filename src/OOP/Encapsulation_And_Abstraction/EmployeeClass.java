@@ -3,7 +3,7 @@ package OOP.Encapsulation_And_Abstraction;
 public class EmployeeClass {
 
     private int baseSalary; // private makes the field only accessible in the class
-    private int extraHours;
+    private int extraHours; // all fields should generally be private
 
     private static int numberOfEmployees;
 

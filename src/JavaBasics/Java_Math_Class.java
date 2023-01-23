@@ -14,7 +14,5 @@ public class Java_Math_Class {
         // it, giving us an int result, or A result with no decimal values.
 
 
-
-
     }
 }
