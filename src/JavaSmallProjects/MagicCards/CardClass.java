@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class CardClass {
+
     private String name;
 
     private File cardModel;
@@ -20,7 +21,7 @@ public class CardClass {
     }
 
     public void setCardModel (String modelName) {
-        cardModel = new File("src\\JavaSmallProjects\\MagicCards\\CardModels"+modelName+"\\"+this.name+".jpg");
+        cardModel = new File("src\\JavaSmallProjects\\MagicCards\\DeckModels\\"+modelName+"\\"+this.name+".jpg");
     }
 
     public String getName(){
@@ -33,8 +34,10 @@ public class CardClass {
 
         }
         Desktop desktop = Desktop.getDesktop();
+
         try {
             desktop.open(this.cardModel);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
