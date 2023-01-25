@@ -14,7 +14,6 @@ public class CardMain {
             System.out.println("Type any of the commands below: ");
             System.out.println("▶ create ---- This command creates a new deck🗂️");
             System.out.println("▶ shuffle ---- This command randomly shuffles the cards in your deck🔀");
-            System.out.println("▶ edit ---- This command allows to delete,add, and move cards around✍️"); // delete and add cards
             System.out.println("▶ sort ---- This command sorts your deck in order♻");
             System.out.println("▶ view ---- This allows you to view your current deck🃏");
             System.out.println("\n");
