@@ -209,6 +209,8 @@ public class DeckClass {
         }
         if (!isRealCard){
             System.out.println("There is no card like that in your deck");
+        } else{
+            System.out.println("Card has successfully been removed!");
         }
     }
 
