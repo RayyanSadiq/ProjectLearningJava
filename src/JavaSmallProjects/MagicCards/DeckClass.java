@@ -10,8 +10,6 @@ public class DeckClass {
 
     private int maxCards;
 
-
-
     private CardClass[] cards;
 
     public DeckClass(String deckModel){

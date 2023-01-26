@@ -1,9 +1,6 @@
 package JavaSmallProjects.MagicCards;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class CardLibary {
@@ -33,7 +30,7 @@ public class CardLibary {
 
     public static void create(DeckClass deck){
         var input = new Scanner(System.in);
-        cueAudio("sound1");
+        cueAudio("proceed");
 
         System.out.println("Which model do you want your new deck to be based on? Type one of the card themes below:");
         displayModelsAvailable();
@@ -50,14 +47,15 @@ public class CardLibary {
         }
         deck.setDeck(cards);
 
-        cueAudio("sound2");
+
+        cueAudio("success");
         System.out.println("Deck successfully created!");
 
     }
 
     public static void edit(DeckClass deck){
         var input = new Scanner(System.in);
-        cueAudio("sound1");
+        cueAudio("proceed");
 
         int x = 0;
         while (x<1){
@@ -76,6 +74,7 @@ public class CardLibary {
                 x =+ 1;
             }
             else if (command.equals("Back")){
+                cueAudio("back");
                 x =+ 1;
             }
             else {
@@ -86,6 +85,7 @@ public class CardLibary {
     }
     public static void add(DeckClass deck){
         var input = new Scanner(System.in);
+        cueAudio("proceed");
 
         int nullCount = 0;
         for (int i = 0; i<deck.getMaxCards();i++){
@@ -115,12 +115,15 @@ public class CardLibary {
 
     public static void remove(DeckClass deck){
         var input = new Scanner(System.in);
+        cueAudio("proceed");
         System.out.println("▶ which do you want to remove?");
         deck.remove(input.nextLine());
     }
 
     public static void view(DeckClass deck){
         var input = new Scanner(System.in);
+        cueAudio("proceed");
+
         int x = 0;
         System.out.println("Here are all your cards in your deck");
 
@@ -134,15 +137,12 @@ public class CardLibary {
 
             String command = capitalize(input.nextLine());
             if (command.equals("Get")) {
-                System.out.println("\s");
-                System.out.println("You can check a specific card's model by typing the rank of the card, and then the suit ");
-                System.out.println("Example: 2s = 2 of spades || A of spades == Ace of spades");
-                System.out.println("\s");
-                deck.viewCardModel(input.nextLine());
+                get(deck);
             } else if (command.equals("Change")) {
                  change(deck);
 
             } else if (command.equals("Back")) {
+                cueAudio("back");
                 x = x + 1;
             } else {
                 cueAudio("error");
@@ -151,7 +151,18 @@ public class CardLibary {
         }
     }
 
+    public static void get(DeckClass deck) {
+        cueAudio("proceed");
+        var input = new Scanner(System.in);
+        System.out.println("\s");
+        System.out.println("You can check a specific card's model by typing the rank of the card, and then the suit ");
+        System.out.println("Example: 2s = 2 of spades || A of spades == Ace of spades");
+        System.out.println("\s");
+        deck.viewCardModel(input.nextLine());
+    }
+
     public static void change(DeckClass deck){
+        cueAudio("proceed");
         var input = new Scanner(System.in);
         int y = 0;
 
@@ -161,11 +172,13 @@ public class CardLibary {
             System.out.println("▶ card");
             String command = capitalize(input.nextLine());
             if (capitalize(command ).equals("Deck")) {
+                cueAudio("proceed");
                 System.out.println("Which model do you want to set all your cards to?");
                 displayModelsAvailable();
                 deck.setCards(capitalize(input.nextLine()));
                 y = +1;
             } else if (capitalize(command ).equals("Card")) {
+                cueAudio("proceed");
                 System.out.println("Type the name of the card that you want to change?");
                 System.out.println("Example: Ks = King of spades || 10d == 10 of diamond");
                 String cardName = input.nextLine();
@@ -218,7 +231,7 @@ public class CardLibary {
 
     public static void cueAudio(String str){
         try {
-            var audio = new AudioPlayer(str);
+            var audio = new SimpleAudioPlayer(str);
             audio.play();
         } catch (Exception e) {
             System.out.println("Error with playing sound.");

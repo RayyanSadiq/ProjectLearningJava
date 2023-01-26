@@ -20,7 +20,8 @@ public class ClassicCardClass implements CardClass {
         setCardModel(cardModel);
     }
 
-    public void setSuitBonus() {
+
+    private void setSuitBonus() {
         if (name.contains("C")){
             this.suitBonus = 0;
         }
@@ -35,8 +36,8 @@ public class ClassicCardClass implements CardClass {
         }
     }
 
-    @Override
-    public void setValue() {
+
+    private void setValue() {
         if (name.contains("A")){
             this.value = 1+suitBonus;
         } else if (name.contains("2")) {
@@ -91,6 +92,7 @@ public class ClassicCardClass implements CardClass {
 
         try {
             desktop.open(this.cardModel);
+            CardLibary.cueAudio("cardOpen");
 
         } catch (IOException e) {
             throw new RuntimeException(e);

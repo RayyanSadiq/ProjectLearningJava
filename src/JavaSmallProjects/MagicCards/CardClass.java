@@ -1,7 +1,8 @@
 package JavaSmallProjects.MagicCards;
 
 public interface CardClass {
-    void setValue();
+
+
 
     void setCardModel(String modelName);
 

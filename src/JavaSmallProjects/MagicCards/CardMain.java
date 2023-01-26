@@ -8,6 +8,13 @@ public class CardMain {
         System.out.println("♣❤welcome to MagicalCards♠♦");
         var input = new Scanner(System.in);
         int x = 0;
+
+        try {
+            var audio = new SimpleAudioPlayer("back");
+        } catch (Exception e) {
+            System.out.println("sound player not working");
+        }
+
         var deck = new DeckClass("None");
         while (x<1){
             System.out.println("\n");
