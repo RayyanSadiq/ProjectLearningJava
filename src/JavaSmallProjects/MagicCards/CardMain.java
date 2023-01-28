@@ -1,6 +1,9 @@
 package JavaSmallProjects.MagicCards;
 
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CardMain {
@@ -9,13 +12,9 @@ public class CardMain {
         var input = new Scanner(System.in);
         int x = 0;
 
-        try {
-            var audio = new SimpleAudioPlayer("back");
-        } catch (Exception e) {
-            System.out.println("sound player not working");
-        }
+        var audio = new SimpleAudioPlayer();
+        var deck = new DeckClass("None", audio);
 
-        var deck = new DeckClass("None");
         while (x<1){
             System.out.println("\n");
             System.out.println("Type any of the commands below: ");
@@ -24,10 +23,16 @@ public class CardMain {
             System.out.println("▶ Edit ---- This command will allow to remove or add cards to your current deck");
             System.out.println("▶ Sort ---- This command sorts your deck in order♻");
             System.out.println("▶ View ---- This allows you to view your current deck🃏");
-            System.out.println("▶ Settings ---- Software settings⚙"); // toggle icons, auto sort, toggle sound
+            System.out.println("▶ Settings ---- Software settings⚙");
+            System.out.println("▶ End ---- Close software");
             System.out.println("\n");
-            CardLibary.processInput(CardLibary.capitalize(input.nextLine()), deck);
 
+            String command = CardLibary.capitalize(input.nextLine());
+            if (command.equals("End")){
+                x =+1;
+            } else {
+                CardLibary.processInput(command, deck);
+            }
 
 
         }

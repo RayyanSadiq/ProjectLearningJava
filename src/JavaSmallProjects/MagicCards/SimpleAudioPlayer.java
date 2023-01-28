@@ -4,30 +4,35 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 
-public class SimpleAudioPlayer {
+public class SimpleAudioPlayer implements AudioPlayer {
     Clip clip;
 
     boolean status;
 
+
     AudioInputStream audioInputStream;
 
-    static String fileName;
-
+    private String fileName;
 
     // constructor to initialize streams and clip
-    public SimpleAudioPlayer() throws UnsupportedAudioFileException, IOException, LineUnavailableException{
-        // create AudioInputStream object
-        audioInputStream = AudioSystem.getAudioInputStream(new File("src\\JavaSmallProjects\\MagicCards\\Audio\\"+fileName+".wav").getAbsoluteFile());
+    public SimpleAudioPlayer() {
+        this.status = true;
 
-        // create clip reference
-        clip = AudioSystem.getClip();
-
-        // open audioInputStream to the clip
-        clip.open(audioInputStream);
     }
+
+
+
     public SimpleAudioPlayer(String name) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         fileName = name;
-        // create AudioInputStream object
+        this.status = true;
+
+        audioInputStream = AudioSystem.getAudioInputStream(new File("src\\JavaSmallProjects\\MagicCards\\Audio\\"+fileName+".wav").getAbsoluteFile());
+        clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+    }
+
+    @Override
+    public void setFileName(String fileName) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         audioInputStream = AudioSystem.getAudioInputStream(new File("src\\JavaSmallProjects\\MagicCards\\Audio\\"+fileName+".wav").getAbsoluteFile());
 
         // create clip reference
@@ -35,14 +40,24 @@ public class SimpleAudioPlayer {
 
         // open audioInputStream to the clip
         clip.open(audioInputStream);
-    }
-
-    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
+    @Override
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean getStatus() {
+        return status;
+    }
+    @Override
     public void play() {
-        clip.start();
+        if (status){
+            clip.start();
+        }
+
     }
 
 }

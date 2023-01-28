@@ -1,14 +1,8 @@
 package JavaSmallProjects.MagicCards;
 
-public interface CardClass {
-
-
+public interface CardClass extends ClassicCardGettable {
 
     void setCardModel(String modelName);
 
-    int getValue();
 
-    String getName();
-
-    void getCardModel();
 }
