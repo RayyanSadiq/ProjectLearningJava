@@ -1,9 +1,6 @@
 package JavaSmallProjects.MagicCards;
 
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class CardMain {
@@ -27,11 +24,11 @@ public class CardMain {
             System.out.println("▶ End ---- Close software");
             System.out.println("\n");
 
-            String command = CardLibary.capitalize(input.nextLine());
+            String command = CardLibrary.capitalize(input.nextLine());
             if (command.equals("End")){
                 x =+1;
             } else {
-                CardLibary.processInput(command, deck);
+                CardLibrary.processInput(command, deck);
             }
         }
     }

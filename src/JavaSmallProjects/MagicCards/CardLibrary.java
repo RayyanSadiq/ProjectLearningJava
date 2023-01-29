@@ -1,9 +1,8 @@
 package JavaSmallProjects.MagicCards;
-
 import java.io.File;
 import java.util.Scanner;
 
-public class CardLibary {
+public class CardLibrary {
 
     public static void processInput(String command, DeckClass deck) {
 
@@ -21,8 +20,8 @@ public class CardLibary {
         }
         else if (command.equals("View")) {
             view(deck);
-
-        } else if (command.equals("Settings")) {
+        }
+        else if (command.equals("Settings")) {
             settings(deck);
         }
         else {
@@ -43,7 +42,8 @@ public class CardLibary {
         if(isCard){
             deck.cueAudio("shuffle");
             System.out.println("Deck has been successfully sorted");
-        } else {
+        }
+        else {
             deck.cueAudio("error");
             System.out.println("There are no cards to shuffle");
         }
@@ -59,9 +59,10 @@ public class CardLibary {
             System.out.println("-------------------------------------------------------------------------------------------");
             System.out.println("Settings:  | Status:      | Command:     ");
             System.out.println("-------------------------------------------------------------------------------------------");
-            System.out.println("   audio   | "+(deck.getAudioStatus() ? "on ":"off")+ "           | /toggle audio");
-            System.out.println("   icons   | "+(deck.getIconFormat() ? "on ":"off") + "           | /toggle icons");
-            System.out.println(" auto-sort | "+(deck.getAutoSort() ? "on ":"off") + "           | /toggle sort");
+            System.out.println("   audio   | "+(deck.getAudioStatus() ? "on ":"off")+ "           | toggle audio");
+            System.out.println("   icons   | "+(deck.getIconFormat() ? "on ":"off") + "           | toggle icons");
+            System.out.println(" auto-sort | "+(deck.getAutoSort() ? "on ":"off") + "           | toggle sort");
+            System.out.println(" duplicate | "+(deck.getDuplicate() ? "on ":"off") + "           | toggle sort");
             System.out.println("           |               |              ");
             System.out.println("\s");
             System.out.println("▶ Back ---- Head back to main menu");
@@ -70,13 +71,20 @@ public class CardLibary {
             if (command.equals("Toggleaudio")){
                 deck.toggleAudio();
                 deck.cueAudio("toggle");
-            } else if (command.equals("Toggleicons")) {
+            }
+            else if (command.equals("Toggleicons")) {
                 deck.toggleIconFormat();
                 deck.cueAudio("toggle");
-            } else if (command.equals("Togglesort")) {
+            }
+            else if (command.equals("Togglesort")) {
                 deck.toggleAutoSort();
                 deck.cueAudio("toggle");
-            } else if (command.equals("Back")){
+            }
+            else if (command.equals("Toggleduplicate")){
+                deck.toggleDuplicate();
+                deck.cueAudio("toggle");
+            }
+            else if (command.equals("Back")){
                 deck.cueAudio("back");
                 x =+ 1;
             }
@@ -157,7 +165,12 @@ public class CardLibary {
                 }
                 else {
                     var newCard = new ClassicCardClass(cardName, model);
-                    deck.add(newCard);
+                    if (deck.getDuplicate() && deck.isDuplicate(newCard)){
+                            System.out.println("This card cannot be added because it is a duplicate");
+                    }
+                    else {
+                        deck.add(newCard);
+                    }
                 }
             }
         }
@@ -198,13 +211,16 @@ public class CardLibary {
             String command = capitalize(input.nextLine());
             if (command.equals("Get")) {
                 get(deck);
-            } else if (command.equals("Change")) {
+            }
+            else if (command.equals("Change")) {
                 change(deck);
 
-            } else if (command.equals("Back")) {
+            }
+            else if (command.equals("Back")) {
                 deck.cueAudio("back");
                 x = x + 1;
-            } else {
+            }
+            else {
                 deck.cueAudio("error");
                 System.out.println("That's not a valid command, try again.");
             }
@@ -215,7 +231,8 @@ public class CardLibary {
         String cardName = selectCard(deck);
         if (cardName.equals("BACK")){
 
-        } else {
+        }
+        else {
             deck.viewCardModel(cardName);
         }
     }
@@ -235,7 +252,8 @@ public class CardLibary {
                 if (model.equals("Back")) {
                     deck.cueAudio("back");
                     x++;
-                } else {
+                }
+                else {
                     deck.setCards(capitalize(model));
                 }
                 x++;
@@ -276,9 +294,10 @@ public class CardLibary {
                 return model;
             }
             try {
-                deck.modelChecker(model);
+                modelChecker(model);
                 return model;
-            } catch (NotValidModelException e) {
+            }
+            catch (NotValidModelException e) {
                 deck.cueAudio("error");
                 System.out.println(e.getMessage());
             }
@@ -293,7 +312,7 @@ public class CardLibary {
         while (x<1){
             System.out.println("\s\s");
             System.out.println("What type of card would you like to add? Type the card's name like the  given examples below:");
-            System.out.println("Example: 5C = 5 of Clubs || qs == Queen of Spades");
+            System.out.println("Example: 5C = 5♣ || qs == Q♠");
             System.out.println("\s");
             System.out.println("▶ Back ---- Head back to main menu");
             String cardName = (input.nextLine().replaceAll("\\s", "")).toUpperCase();
@@ -303,10 +322,11 @@ public class CardLibary {
                 return cardName;
             }
             try {
-                String rank = deck.rankChecker(cardName);
-                String suit = deck.suitChecker(cardName);
+                String rank = rankChecker(cardName);
+                String suit = suitChecker(cardName);
                 return cardName = rank+suit;
-            } catch ( NotValidSuitException | NotValidRankException e) {
+            }
+            catch ( NotValidSuitException | NotValidRankException e) {
                 deck.cueAudio("error");
                 System.out.println(e.getMessage());
             }
@@ -338,6 +358,41 @@ public class CardLibary {
             str =str.replace("H","❤");
         }
         return str;
+    }
+
+    public static String suitChecker(String str) throws NotValidSuitException {
+        if (str.contains("C")) {return "C";}
+        else if (str.contains("H")) {return "H";}
+        else if (str.contains("S")) {return "S";}
+        else if (str.contains("D")) {return "D";}
+        else { throw new NotValidSuitException();}
+    }
+
+    public static String rankChecker(String str) throws NotValidRankException {
+        if (str.contains("A")){ return "A";}
+        else if (str.contains("2")) { return "2";}
+        else if (str.contains("3")) { return "3";}
+        else if (str.contains("4")) { return "4";}
+        else if (str.contains("5")) { return "5";}
+        else if (str.contains("6")) { return "6";}
+        else if (str.contains("7")) { return "7";}
+        else if (str.contains("8")) { return "8";}
+        else if (str.contains("9")) { return "9";}
+        else if (str.contains("10")) { return "10";}
+        else if (str.contains("J")) { return "J";}
+        else if (str.contains("Q")) { return "Q";}
+        else if (str.contains("K")) { return "K";}
+        else { throw new NotValidRankException();}
+    }
+
+    public static String modelChecker(String deckModel) throws NotValidModelException {
+        File deckModels  = new File("src\\JavaSmallProjects\\MagicCards\\DeckModels");
+        for (File model:deckModels.listFiles()){
+            if (model.getName().equals(deckModel)){
+                return deckModel;
+            }
+        }
+        throw new NotValidModelException();
     }
 
     public static String capitalize(String str){
