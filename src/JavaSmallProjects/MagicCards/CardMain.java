@@ -33,8 +33,6 @@ public class CardMain {
             } else {
                 CardLibary.processInput(command, deck);
             }
-
-
         }
     }
 }

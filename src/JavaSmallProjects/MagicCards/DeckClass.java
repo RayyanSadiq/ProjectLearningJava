@@ -1,6 +1,8 @@
 package JavaSmallProjects.MagicCards;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class DeckClass {
@@ -24,7 +26,6 @@ public class DeckClass {
     public DeckClass(String deckModel, AudioPlayer audio){
         this.iconFormat = true;
         this.audio = audio;
-
         this.deckModels  = new File("src\\JavaSmallProjects\\MagicCards\\DeckModels");
         suits = new String[]{"C","H","S","D"};
         ranks = new String[]{"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
@@ -43,71 +44,50 @@ public class DeckClass {
     public String[] getRanks() {
         return ranks;
     }
-
+    public boolean getAudioStatus() {
+        return audio.getStatus();
+    }
     public int getMaxCards() {
         return maxCards;
     }
     public boolean getIconFormat() {
         return iconFormat;
     }
-
     public boolean getAutoSort() {
         return autoSort;
     }
-
     public void setDeck(CardClass [] cards) {
         this.cards = cards;
-        cueAudio("success");
-        System.out.println("Deck successfully created!");
-    }
-    public String modelChecker(String deckModel) throws NotValidModelException {
-
-        for (File model:deckModels.listFiles()){
-            if (model.getName().equals(deckModel)){
-                return deckModel;
-            }
-        }
-        throw new NotValidModelException();
     }
 
-    public void setCards(String deckModel) throws NotValidModelException {
-        deckModel = modelChecker(deckModel);
-        boolean isEmpty = true;
+    public void setCards(String deckModel) {
 
         for (int i = 0; i < maxCards; i++){
             if (cards[i] != null){
-                isEmpty = false;
                 cards[i].setCardModel(deckModel);
             }
         }
 
-        if (isEmpty){
+        if (isEmpty()){
             cueAudio("error");
             System.out.println("They are no cards in your deck, try adding some.");
         } else {
             cueAudio("success");
             System.out.println("All cards in the deck have been successfully changed");
         }
-
     }
 
-    public void setCard(String name, String model) throws NotValidSuitException, NotValidRankException, NotValidModelException {
-        String cardName = (name.replaceAll("\\s", "")).toUpperCase();
-        String suit = suitChecker(cardName);
-        String rank = rankChecker(cardName);
-        model = modelChecker(model);
-        boolean isCard = false;
+    public void setCard(String name, String model) {
 
         for (int i = 0; i < maxCards; i++){
             if (cards[i] != null){
-                if (cards[i].getName().equals(rank+suit)){
-                    isCard= true;
+                if (cards[i].getName().equals(name)){
                     cards[i].setCardModel(model);
                     break;
                 }
             }
         }
-        if (!isCard){
+        if (!isCard(name)){
             cueAudio("error");
             System.out.println("This card is not in your deck.");
         } else {
@@ -118,14 +98,6 @@ public class DeckClass {
 
     public void shuffle(){
 
-        boolean isEmpty = true;
-        for (int i = 0; i < maxCards; i++){
-            if (cards[i] != null){
-                isEmpty = false;
-                break;
-            }
-        }
-
         Random randomGenerator = new Random();
         for (int i = 0; i < maxCards; i++) {
 
@@ -135,7 +107,7 @@ public class DeckClass {
             cards[i] = cards[randomIndex];
             cards[randomIndex] = temp;
         }
-        if (isEmpty){
+        if (isEmpty()){
             cueAudio("error");
             System.out.println("There are no cards to shuffle");
         }
@@ -151,11 +123,9 @@ public class DeckClass {
 
         int cardAmount = 0;
         int nullAmount = 0;
-        boolean isEmpty = true;
 
         for (int y = 0; y < cards.length; y++) {
             if (cards[y] != null){
-                isEmpty = false;
                 cardAmount++;
             }
             else {
@@ -179,9 +149,6 @@ public class DeckClass {
                 nullCount++;
             }
         }
-
-
-
         BubbleSort.sort(cardArray);
 
         int count = 0;
@@ -194,8 +161,6 @@ public class DeckClass {
             count++;
         }
     }
-
-
 
     public void viewCards() {
         int count = 0;
@@ -215,40 +180,30 @@ public class DeckClass {
         }
     }
 
-    public void viewCardModel(String input) throws NotValidSuitException, NotValidRankException {
-        String cardName = (input.replaceAll("\\s", "")).toUpperCase();
-        String suit = suitChecker(cardName);
-        String rank = rankChecker(cardName);
-        boolean isCard = false;
-
+    public void viewCardModel(String cardName) {
         for(int i = 0; i < cards.length; i++ ){
             if (cards[i] != null) {
-                if (cards[i].getName().equals(rank+suit)){
+                if (cards[i].getName().equals(cardName)){
                     cards[i].getCardModel();
-                    isCard = true;
+                    cueAudio("cardOpen");
                     break;
                 }
             }
         }
-        if (isCard){
-            cueAudio("cardOpen");
+        if (isCard(cardName)){
             System.out.println("Card has been successfully retrieved");
         } else {
             cueAudio("error");
             System.out.println("There is no card like that in your deck");
         }
-
     }
 
-    public void remove (String input) throws NotValidSuitException, NotValidRankException {
-        String cardName = (input.replaceAll("\\s", "")).toUpperCase();
-        String suit = suitChecker(cardName);
-        String rank = rankChecker(cardName);
+    public void remove (String cardName)  {
         boolean isCard = false;
 
         for(int i = 0; i < cards.length; i++ ){
             if (cards[i] != null) {
-                if (cards[i].getName().equals(rank+suit)){
+                if (cards[i].getName().equals(cardName)){
                     cards[i] = null;
                     isCard = true;
                     break;
@@ -303,10 +258,6 @@ public class DeckClass {
         }
     }
 
-    public boolean getAudioStatus() {
-        return audio.getStatus();
-    }
-
     public void toggleAudio (){
         if (audio.getStatus()){
             audio.setStatus(false);
@@ -331,69 +282,72 @@ public class DeckClass {
         }
     }
 
-    public String suitChecker(String str) throws NotValidSuitException {
-        if (str.contains("C")){
-            return "C";
+    public boolean isEmpty(){
+        boolean isEmpty = true;
+        for (int i = 0; i < maxCards; i++){
+            if (cards[i] != null){
+                isEmpty = false;
+                break;
+            }
         }
-        else if (str.contains("H")) {
-            return "H";
-        }
-        else if (str.contains("S")) {
-            return "S";
-        }
-        else if (str.contains("D")) {
-            return "D";
-        }
-        else {
-            throw new NotValidSuitException();
-        }
+        return isEmpty;
+    }
 
+    public boolean isCard(String name){
+        boolean isCard = false;
+        for (int i = 0; i < cards.length; i++ ){
+            if (cards[i] != null) {
+                if (cards[i].getName().equals(name)){
+                    isCard = true;
+                    break;
+                }
+            }
+        }
+        return isCard;
+    }
+
+    public String modelChecker(String deckModel) throws NotValidModelException {
+
+        for (File model:deckModels.listFiles()){
+            if (model.getName().equals(deckModel)){
+                return deckModel;
+            }
+        }
+        throw new NotValidModelException();
+    }
+
+    public String suitChecker(String str) throws NotValidSuitException {
+        if (str.contains("C")) {return "C";}
+        else if (str.contains("H")) {return "H";}
+        else if (str.contains("S")) {return "S";}
+        else if (str.contains("D")) {return "D";}
+        else { throw new NotValidSuitException();}
     }
 
     public String rankChecker(String str) throws NotValidRankException {
-        if (str.contains("A")){
-            return "A";
-        }
-        else if (str.contains("2")) {
-            return "2";
-        }
-        else if (str.contains("3")) {
-            return "3";
-        }
-        else if (str.contains("4")) {
-            return "4";
-        }
-        else if (str.contains("5")) {
-            return "5";
-        }
-        else if (str.contains("6")) {
-            return "6";
-        }
-        else if (str.contains("7")) {
-            return "7";
-        }
-        else if (str.contains("8")) {
-            return "8";
-        }
-        else if (str.contains("9")) {
-            return "9";
-        }
-        else if (str.contains("10")) {
+        Map<String, String> rankMap = new HashMap<>();
+
+        rankMap.put("A","A");
+        rankMap.put("2","2");
+        rankMap.put("3","3");
+        rankMap.put("4","4");
+        rankMap.put("5","5");
+        rankMap.put("6","6");
+        rankMap.put("7","7");
+        rankMap.put("8","8");
+        rankMap.put("9","9");
+        rankMap.put("J","11");
+        rankMap.put("Q","12");
+        rankMap.put("K","13");
+
+        if (str.contains("10")){
             return "10";
-        }
-        else if (str.contains("J")) {
-            return "J";
-        }
-        else if (str.contains("Q")) {
-            return "Q";
-        }
-        else if (str.contains("K")) {
-            return "K";
-        }
-        else {
+        } else if (rankMap.containsKey(str.substring(0,1))){
+             return rankMap.get(str.substring(0,1));
+        } else{
             throw new NotValidRankException();
         }
 
-    }
 
+    }
 }

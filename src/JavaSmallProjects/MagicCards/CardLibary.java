@@ -47,7 +47,6 @@ public class CardLibary {
             deck.cueAudio("error");
             System.out.println("There are no cards to shuffle");
         }
-
     }
 
     private static void settings(DeckClass deck) {
@@ -82,18 +81,16 @@ public class CardLibary {
                 x =+ 1;
             }
         }
-
     }
 
     public static void create(DeckClass deck){
         var input = new Scanner(System.in);
-        deck.cueAudio("proceed");
 
-        System.out.println("Which model do you want your new deck to be based on? Type one of the card themes below:");
-        displayModelsAvailable();
-        String deckModel = null;
-        try {
-            deckModel = deck.modelChecker(capitalize(input.nextLine()));
+        String deckModel = selectModel(deck);
+        if (deckModel.equals("Back")){
+            deck.cueAudio("back");
+        }
+        else {
             int count = 0;
             ClassicCardClass [] cards = new ClassicCardClass[deck.getMaxCards()];
             for (int x = 0; x < deck.getSuits().length; x++) {
@@ -103,10 +100,8 @@ public class CardLibary {
                 }
             }
             deck.setDeck(cards);
-
-        } catch (NotValidModelException e) {
-            deck.cueAudio("error");
-            System.out.println(e.getMessage());
+            deck.cueAudio("success");
+            System.out.println("Deck successfully created!");
         }
     }
 
@@ -123,12 +118,12 @@ public class CardLibary {
             String command = capitalize(input.nextLine());
 
             if (command.equals("Add")){
-                add(deck);
-                x =+ 1;
+               addCard(deck);
+
             }
             else if (command.equals("Remove")) {
                 remove(deck);
-                x =+ 1;
+
             }
             else if (command.equals("Back")){
                 deck.cueAudio("back");
@@ -140,45 +135,48 @@ public class CardLibary {
             }
         }
     }
-    public static void add(DeckClass deck){
+
+    public static void addCard(DeckClass deck ){
         var input = new Scanner(System.in);
         deck.cueAudio("proceed");
 
-        System.out.println("What model do you want?");
-        displayModelsAvailable();
-        String model = capitalize(input.nextLine().replaceAll("\\s", ""));
-        deck.cueAudio("proceed");
+        int y = 0;
+        while (y<1){
 
-        try {
-            System.out.println("▶ What type of card would you like to add? Type the card's name like the  given examples below:");
-            System.out.println("Example: 5C = 5 of Clubs || qs == Queen of Spades");
-            String cardName = (input.nextLine().replaceAll("\\s", "")).toUpperCase();
-            String rank = deck.rankChecker(cardName);
-            String suit = deck.suitChecker(cardName);
-            System.out.println(rank+suit);
-            var newCard = new ClassicCardClass(rank+suit, deck.modelChecker(model));
-            deck.add(newCard);
+            String cardName = selectCard(deck);
 
-        } catch (NotValidRankException | NotValidSuitException | NotValidModelException e) {
-            deck.cueAudio("error");
-            System.out.println(e.getMessage());
+            if (cardName.equals("BACK")){
+                deck.cueAudio("back");
+                y = y+1;
+            }
+            else {
+                String model = selectModel(deck);
+                if (model.equals("Back")){
+                    deck.cueAudio("back");
+                    y = y+1;
+                }
+                else {
+                    var newCard = new ClassicCardClass(cardName, model);
+                    deck.add(newCard);
+                }
+            }
         }
-
-
-
     }
 
     public static void remove(DeckClass deck){
         var input = new Scanner(System.in);
         deck.cueAudio("proceed");
-        System.out.println("▶ which card do you want to remove? Type the card's name like the given examples below:");
-        System.out.println("Example: Jd = Joker of Diamonds || Ks == King of Spades");
-        try {
-            deck.remove(input.nextLine());
 
-        } catch (NotValidRankException | NotValidSuitException e) {
-            deck.cueAudio("error");
-            System.out.println(e.getMessage());
+        int x = 0;
+        while (x<1){
+            String cardName = selectCard(deck);
+            if (cardName.equals("BACK")){
+                deck.cueAudio("back");
+                x = x +1;
+            }
+            else {
+                deck.remove(cardName);
+            }
         }
     }
 
@@ -214,18 +212,11 @@ public class CardLibary {
     }
 
     public static void get(DeckClass deck) {
-        deck.cueAudio("proceed");
-        var input = new Scanner(System.in);
-        System.out.println("\s");
-        System.out.println("You can check a specific card's model by typing the rank of the card, and then the suit ");
-        System.out.println("Example: 2s = 2 of spades || As == Ace of spades");
-        System.out.println("\s");
+        String cardName = selectCard(deck);
+        if (cardName.equals("BACK")){
 
-        try {
-            deck.viewCardModel(input.nextLine());
-        } catch (NotValidRankException | NotValidSuitException e) {
-            deck.cueAudio("error");
-            System.out.println(e.getMessage());
+        } else {
+            deck.viewCardModel(cardName);
         }
     }
 
@@ -240,37 +231,87 @@ public class CardLibary {
             System.out.println("▶ card");
             String command = capitalize(input.nextLine());
             if (capitalize(command ).equals("Deck")) {
-                deck.cueAudio("proceed");
-                System.out.println("Which model do you want to set all your cards to?");
-                displayModelsAvailable();
-                try {
-                    deck.setCards(capitalize(input.nextLine()));
-                } catch (NotValidModelException e) {
-                    deck.cueAudio("error");
-                    e.getMessage();
+                String model = selectModel(deck);
+                if (model.equals("Back")) {
+                    deck.cueAudio("back");
+                    x++;
+                } else {
+                    deck.setCards(capitalize(model));
                 }
-                x = +1;
+                x++;
+
             } else if (capitalize(command ).equals("Card")) {
-                deck.cueAudio("proceed");
-                System.out.println("Type the name of the card that you want to change?");
-                System.out.println("Example: Ks = King of spades || 10d == 10 of diamond");
-                String cardName = input.nextLine();
-                deck.cueAudio("proceed");
-                System.out.println("Which model do you want to set this card to?");
-                displayModelsAvailable();
-                try {
-                    deck.setCard(cardName, capitalize(input.nextLine()));
-                } catch (NotValidRankException | NotValidModelException | NotValidSuitException e) {
-                    deck.cueAudio("error");
-                    System.out.println(e.getMessage());
+                String cardName = selectCard(deck);
+                String model = selectModel(deck);
+                if (model.equals("Back") || cardName.equals("BACK")) {
+                    deck.cueAudio("back");
+                    x++;
                 }
-                x = +1;
+                else {
+                    deck.setCard(cardName, model);
+                    x++;
+                }
             }
             else {
                 deck.cueAudio("error");
                 System.out.println("That's not a valid command, try again.");
             }
         }
+    }
+
+    public static String selectModel(DeckClass deck){
+        var input = new Scanner(System.in);
+        deck.cueAudio("proceed");
+        int x = 0;
+        while (x<1){
+            System.out.println("\s\s");
+            System.out.println("What model do you want?");
+            displayModelsAvailable();
+            System.out.println("▶ Back ---- Head back to main menu");
+            System.out.println("\s");
+            String model = capitalize(input.nextLine().replaceAll("\\s", ""));
+            System.out.println("\s");
+            if (model.equals("Back")){
+                deck.cueAudio("back");
+                return model;
+            }
+            try {
+                deck.modelChecker(model);
+                return model;
+            } catch (NotValidModelException e) {
+                deck.cueAudio("error");
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public static String selectCard(DeckClass deck){
+        var input = new Scanner(System.in);
+        deck.cueAudio("proceed");
+        int x = 0;
+        while (x<1){
+            System.out.println("\s\s");
+            System.out.println("What type of card would you like to add? Type the card's name like the  given examples below:");
+            System.out.println("Example: 5C = 5 of Clubs || qs == Queen of Spades");
+            System.out.println("\s");
+            System.out.println("▶ Back ---- Head back to main menu");
+            String cardName = (input.nextLine().replaceAll("\\s", "")).toUpperCase();
+
+            if (cardName.equals("BACK")){
+                deck.cueAudio("back");
+                return cardName;
+            }
+            try {
+                String rank = deck.rankChecker(cardName);
+                String suit = deck.suitChecker(cardName);
+                return cardName = rank+suit;
+            } catch ( NotValidSuitException | NotValidRankException e) {
+                deck.cueAudio("error");
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
     }
 
     public static void displayModelsAvailable(){
@@ -307,6 +348,4 @@ public class CardLibary {
         }
         return str.substring(0,1).toUpperCase() + str.substring(1);
     }
-
-
 }
