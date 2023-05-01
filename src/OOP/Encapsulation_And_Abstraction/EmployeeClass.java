@@ -46,6 +46,7 @@ public class EmployeeClass {
         return baseSalary + (extraHours * hourlyRate);
     }
 
+
     public void setBaseSalary (int baseSalary) {
         if (baseSalary <= 0) {
             throw new IllegalArgumentException("Salary cannot be zero or less"); // This causes an error when salary is
@@ -56,7 +57,8 @@ public class EmployeeClass {
 
     // Getters are usually public, but since we are not using these, we are hiding them with private, making the class UI
     // more clean
-    private int getBaseSalary () { // we're going to turn this method to private to reduce coupling and making the ui
+
+    public int getBaseSalary () { // we're going to turn this method to private to reduce coupling and making the ui
         // simpler
         return baseSalary;
     }

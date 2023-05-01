@@ -9,7 +9,7 @@ public class For_Loops {
         System.out.println("\n");
 
         String[] color_pencils = {"red", "blue", "yellow"};
-        for (int i = 0; i < color_pencils.length; i++) {
+        for (int i = 0; i < color_pencils.length; i--) {
             System.out.println(color_pencils[i]);
         }
 

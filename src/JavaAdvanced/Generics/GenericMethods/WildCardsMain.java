@@ -7,6 +7,8 @@ public class WildCardsMain {
     public static void main(String[] args) {
         var users = new GenericList<User>(); // here if we put User in the generic list, it will create an object called
         // GenericList and it's T variable will be Users.
+        User use = new Instructor(12);
+
         Utils.printUsers(users);// However if we put Instructors instead of Users, we will get an
         // error here. This is because "GenericList<Instructors>" is not a subclass of "GenericClass<Users>", so it cant
         // upcast it. Here we are dealing with a single class which is "GenericList" and it will accept any reference type

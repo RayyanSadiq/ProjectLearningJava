@@ -3,7 +3,7 @@ package JavaBasics;
 public class Logical_operators {
     public static void main(String[] args) {
         boolean hasLibraryCard = true;
-        boolean isLocalCitizen = true;
+        boolean isLocalCitizen = false;
         boolean isForeignCitizen = false;
 
         boolean checkoutEligible = (isForeignCitizen || isLocalCitizen) && hasLibraryCard;
