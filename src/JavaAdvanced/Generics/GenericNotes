@@ -1,0 +1,18 @@
+Generics are used for the purpose that a method or class can take in any data type, that's why they are called Generics.
+like lists for example, are a Generic. Lists are what is called Generic Type, because it is a type which can contain
+different kinds of data (Strings, Integers, Longs, etc.). When you declare a list, you declare along the type of elements
+that the list contains. Ex: List<String> is a lists of String elements.
+
+However keep in mind there are more uses for Generics besides list, it just follows this one rule -> if multiple data
+types need to go through a behavior that is exactly the same then that is where Generics can apply, although lists are
+one of the more common usages of Generics.
+
+There main purpose is to prevent a copy pasting code when you want to apply a behavior to more then one data type, this
+is why they are very useful. We can technically do something similar without Generics by casting everything to a Object
+class, however two problems arise:
+
+    - we would need to type cast
+    - and data type cast error can occur, but we wouldn't know until runtime
+
+
+

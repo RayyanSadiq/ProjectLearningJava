@@ -1,4 +1,6 @@
-package JavaAdvanced.Generics;
+package JavaAdvanced.Generics.MainDirectory;
+
+import JavaAdvanced.Generics.MainDirectory.GenericList;
 
 public class WrapperClass {
     public static void main(String[] args) {

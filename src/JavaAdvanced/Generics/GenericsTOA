@@ -1,0 +1,79 @@
+Generics Table of Contents:
+
+    TheProblemAndTheSolution:
+        - List
+            - shows a problem generics try to fix
+            - shows a poor solution that gets the job done but is very ineffective.
+
+        - Main
+            - A brief explanation of Wrapper classes
+            - two problems that arise with the poor solution offered in the "List" file.
+
+    MainDirectory:
+        - GenericList
+            - How to make a Generic Class
+            - Generic syntax
+            - common generic conventions
+            - How to make a Generic array
+
+        - Constraints
+            - What are constraints
+            - Class Constraints
+            - Example of Constraints
+
+        - TypeErasure
+            - Interface Constraints
+            - Example of Interface Constraints
+            - Generics : Behind the Scenes
+            - Type Erasure
+
+        - KeyValuePairClass
+            - Generic types with two or more types
+
+        - WrapperClass
+            - The need for Wrapper classes in Generics
+            - Wrapper Class : Behind the Scenes
+            - Boxing and Unboxing
+
+        - GenericsMain
+            - Normal Generic Class example
+            - Generic with constraints
+            - Generic with more then one parameter
+
+    TheComparableInterface
+        - UserClass
+            - The comparable interface
+            - importance of Comparable interface
+            - how to implement the interface
+            - Difference between equals method and compareTo method
+            - how to add customize compareTo method
+
+        - UserMain
+            - Demonstration of interface in action
+
+    GenericMethods
+        - Utils
+            - How to make generic methods
+            - syntax for generic methods
+            - multiple generic type parameters in methods
+
+        - Main
+            - example of usage of generic methods
+
+        - WildCardsMain
+            - What problems wild card solve
+
+        - WildCardUtils
+            - How to make a WildCards method
+            - how to read from a Generic List
+            - how to add to a Generic List
+            - WildCards : Behind the Scenes
+            - CAP class
+            - Extends
+            - Super
+
+
+
+
+
+

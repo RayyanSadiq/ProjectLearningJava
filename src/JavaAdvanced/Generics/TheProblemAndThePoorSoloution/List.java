@@ -29,4 +29,7 @@ public class List {
     public Object get (int index) {
         return items[index];
     }
+
+    // while the implementation above does work, this gives rise to two new errors as you will see in the "Main" file
+    // of this directory.
 }

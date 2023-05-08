@@ -1,4 +1,4 @@
-package JavaAdvanced.Generics;
+package JavaAdvanced.Generics.MainDirectory;
 
 public class KeyValuePairClass <K, V> { // multiple parameters for generics in classes
 
@@ -8,5 +8,9 @@ public class KeyValuePairClass <K, V> { // multiple parameters for generics in c
     public KeyValuePairClass(K key, V value) {
         this.key = key;
         this.value = value;
+    }
+
+    public void printPairValues(){
+        System.out.println(key+ ", "+ value);
     }
 }
