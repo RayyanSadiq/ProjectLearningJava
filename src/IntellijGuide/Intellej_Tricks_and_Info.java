@@ -1,4 +1,4 @@
-package JavaBasics;
+package IntellijGuide;
 
 public class Intellej_Tricks_and_Info {
 

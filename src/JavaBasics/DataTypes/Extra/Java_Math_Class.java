@@ -1,4 +1,4 @@
-package JavaBasics.DataTypes;
+package JavaBasics.DataTypes.Extra;
 
 public class Java_Math_Class {
     public static void main(String[] args) {

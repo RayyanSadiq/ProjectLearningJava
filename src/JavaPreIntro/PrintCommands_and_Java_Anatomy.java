@@ -1,4 +1,4 @@
-package JavaBasics.DataTypes;
+package JavaPreIntro;
 
 public class PrintCommands_and_Java_Anatomy { // public is a type of access modifier which means if it is accessible or
     // not to other methods or classes. "class" defines the main class of this script. The main class, which is the
@@ -11,8 +11,8 @@ public class PrintCommands_and_Java_Anatomy { // public is a type of access modi
         // cover later. Void is a return-type value that returns nothing, hence void. To execute code, we must make a
         // "main" method. The first letter of "main" must always be lower cased. The first method must always have (String[]
         // args) in the parameters.
-        System.out.print("Hello world"); // System.out.print is the statement that prints out a value on to the output
-        // prompt. JavaBasics.DataTypes.Strings have to be defined with double quotation marks. All java statements must end with a semicolon
+        System.out.print("Hello world"); // System.out.print is the statement that prints out a value on to the console
+        // prompt. All java statements must end with a semicolon.
 
         System.out.println("!"); // System.out.println prints out the NEXT output on the next line.
         System.out.print("Next line");

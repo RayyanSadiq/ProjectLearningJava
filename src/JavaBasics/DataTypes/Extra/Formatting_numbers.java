@@ -1,4 +1,4 @@
-package JavaBasics.DataTypes;
+package JavaBasics.DataTypes.Extra;
 
 import java.text.NumberFormat;
 

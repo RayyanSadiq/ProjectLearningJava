@@ -1,4 +1,4 @@
-package JavaBasics;
+package JavaBasics.Operators;
 
 public class Ternary_operators {
     public static void main(String[] args) {
