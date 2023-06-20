@@ -2,6 +2,7 @@ package JavaBasics.DataTypes;
 
 public class Strings {
     public static  void main(String[] args) {
+
         String message = "Hello World"; // String is a reference type
         System.out.println(message + "!!");// The process of adding 2 strings together is called concatenation
         System.out.println(message.endsWith("!!")); // checks if String ends with the given value, if so prints true.
@@ -15,11 +16,11 @@ public class Strings {
         // of items. However, the index of an Iterable always starts at 0, instead of 1. Meaning that to access the first
         // element of an iterable, you have to call index 0.
 
-        // A String is an Iterable because it is a list of characters "Stringed" together. This is why a String is called a
-        // String. So to call a specific character from a string you must call the substring method which is covered in a
-        // couple lines below. The index rule is still the same for String meaning its index starts at 0, so keep that in mind.
-        // Also keep in mind tha String.length method counts th number of chars they are normally, so if their are 8 chars
-        // then it will return 8, while the index will go up to 7 because index starts from 0.
+        /* A String is an Iterable because it is a list of characters "Stringed" together. This is why a String is called a
+         String. So to call a specific character from a string you must call the substring method which is covered in a
+         couple lines below. The index rule is still the same for String meaning its index starts at 0, so keep that in mind.
+         Also keep in mind tha String.length method counts th number of chars they are normally, so if their are 8 chars
+         then it will return 8, while the index will go up to 7 because index starts from 0. */
 
 
         System.out.println(message.indexOf('H'));// Indexes the given value and returns position, if value is not
