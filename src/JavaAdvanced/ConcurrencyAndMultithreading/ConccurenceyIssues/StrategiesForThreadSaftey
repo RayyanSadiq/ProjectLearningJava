@@ -1,0 +1,33 @@
+We have a few strategies for writing Threat safe code that is code that can be safely executed across multiple threats.
+The simplest solution is not to share data across threads in the first place. This is called confinement because we wanna
+confine or restrict each thread to have its own data. For example, instead of sharing a download status object across many
+download tasks, you could have each download task have its own download status object.
+
+When all these tasks are complete, we can combine the result. So this is the simplest strategy. I will show you how to do
+this in the next video. Another strategy is using immutable or unchangeable objects. An object is immutable if its date or
+data cannot be changed after it's created. For example, the string class in Java is immutable.
+
+If we convert a string to uppercase, we get a new string object. The original string object is not changed. Sharing
+immutable objects between threads is totally fine because these threads can only read immutable objects. They cannot
+modify them. Another strategy is to prevent multiple threads from accessing the same object concurrently.
+
+This is called synchronization because we synchronize or coordinate the access to an object across different threads.
+We do that by using locks. So we put a lock on certain parts of our code and only one thread at a time can execute that
+part. Other threads have to wait. So, synchronization forces the code to run sequentially, which is against the idea of
+concurrency.
+
+Plus, implementing synchronization is challenging and error prone. One of the problems we may run into is a deadlock,
+which happens when two threads wait for each other indefinitely. So thread 1 waits for thread 2, and at the same time
+thread 2 waits for thread 1. That's a deadlock, and can cause our application to crash.
+
+Generally speaking, synchronization is bad and you should avoid it as much as possible. Another strategy is to use
+atomic classes in Java like atomic integer. These classes allow us to achieve threat safety without using locks. So if
+we increment an atomic integer, the Java virtual machine will execute the increment operation as one single atomic operation.
+
+It's not going to break it down into three smaller operations. That's why they're called atomic, they're like atoms,
+they cannot be broken down. And finally another strategy is partitioning data into segments that can be accessed
+concurrently. Java provides a number of collection classes that support concurrency using partitioning.
+
+So multiple threads can access a collection object. But only one thread at a time can access a segment in that collection.
+So these are five common strategies we have for writing thread safe code. Over the next few lessons, we're going to
+explore each of these strategies.

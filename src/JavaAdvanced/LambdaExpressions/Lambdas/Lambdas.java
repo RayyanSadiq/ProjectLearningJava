@@ -11,7 +11,7 @@ public class Lambdas {
 
     public static void showStatic (){
         greet(message -> { /*
-             This is a lambda expression. The syntax fo it is putting in the parameters and then using the
+             This is a lambda expression. The syntax for it is putting in the parameters and then using the
              lambda operator "->". Then we use curly braces to signify the creation of an anonymous method and pass the
              implementation in there. One good practice is that we remove parenthesis around the parameters if there is
              only one parameter. We put parenthesis only if they are none or more than one parameter.
