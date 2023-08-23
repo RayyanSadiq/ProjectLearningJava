@@ -5,8 +5,6 @@ import java.util.List;
 
 public class MainThread {
     public static void main(String[] args) {
-        
-        var status = new DownloadStatus();
 
         List<Thread> threadList = new ArrayList<>();
         List<DownloadFileTask> tasks = new ArrayList<>();
@@ -14,7 +12,7 @@ public class MainThread {
         for (int i = 0; i < 10; i++) {
 
             // Let's see how we can use confinement to prevent race conditions. So instead of showing a single status object across multiple threads,
-            // We're going to have each thread work with it's own status object.
+            // We're going to have each thread work with its own status object.
             // Back to our demo class, so we start 10 threads, we wait for them to finish, at the end, we have to ask each thread for
             // it's status object. Then we'll combine the total bytes across all the status objects. But there's a problem here.
             // We're creating our download tasks over here. So later on, we won't have access to them.
@@ -50,6 +48,6 @@ public class MainThread {
                 .reduce(Integer::sum);
 
         System.out.println(totalBytes);
-
     }
+
 }
