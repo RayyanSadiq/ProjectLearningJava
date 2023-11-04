@@ -21,6 +21,7 @@ public class MapInterface {
         // customer itself with that email.
         map.put(customer2.getEmail(),customer2);
 
+
         var customer = map.get("kulu-ya-ku"); // now we can get a customer my calling by their associated emails
         System.out.println(customer);
 

@@ -1,6 +1,6 @@
 package JavaAdvanced.Generics.MainDirectory;
 
-public class TypeErasure<T extends Comparable> { //One thing to note here is that constraints don't apply o just classes
+public class TypeErasure<T extends Comparable> { //One thing to note here is that constraints don't apply to just classes
     // but also to interfaces like the Comparable interface which is used to compare to objects to each other that are
     // comparable. This also means that if an object that is not comparable or does not have the comparable interface
     // implemented, then that data type will not be allowed as valid data type for this genericClass. Here we can also

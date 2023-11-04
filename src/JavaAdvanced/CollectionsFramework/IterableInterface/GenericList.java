@@ -2,7 +2,7 @@ package JavaAdvanced.CollectionsFramework.IterableInterface;
 
 import java.util.Iterator;
 
-public class GenericList<T> implements Iterable<T> { // The Iterable interface is a generic interface that implements 3
+public class GenericList<T> implements Iterable<T> { // The Iterable interface is a generic interface that implements 3 methods
     // one of which is mandatory to implement which is the iterator method.
 
     private T[] items =  (T []) new Object[10];

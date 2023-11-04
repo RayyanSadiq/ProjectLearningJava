@@ -52,9 +52,9 @@ public class WildCardUtils {
         Object x1 = users.get(0);
 
         User x = users.get(0); // Now we can store a value from the GenericList of Users as a User variable, because the
-        // User Class is now the parent of the Capture Class, however we can store it in a Instructor variable, because
-        // the Instructor and Capture class are 2 different classes, inheriting from the same parent. However, we cannot add
-        // because we can only add the CAP class and it's descendant, but we do not have access to the CAP class but we
+        // User Class is now the parent of the Capture Class, however we can't store it in a Instructor variable, because
+        // the Instructor and Capture class are 2 different classes, inheriting from the same parent. However, we cannot add values
+        // because we can only add the CAP class and it's descendant, but we do not have access to the CAP class, but we
         // can put it into a position where it will become a parent class with the super keyword.
     }
 

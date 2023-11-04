@@ -19,10 +19,14 @@ public class Utils {
 
     }
 
-    public static <K, V> void print (K key ,V values) { // multiple parameters for methods in classes
+    public static <K, V, T> void print (K key ,V values) { // multiple parameters for methods in classes
         System.out.println(key + "=" + values);
 
     }
+
+    // Method Overloading vs Generic Methods
+    // -  overload if there will be a separate implementation for each type
+    // -  use generics if you can have a single implementation that works for all possible types.
 
 
 }
