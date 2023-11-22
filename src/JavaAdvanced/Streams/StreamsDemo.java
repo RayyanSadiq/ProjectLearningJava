@@ -21,7 +21,7 @@ public class StreamsDemo {
         }
 
         // Declarative programming (Functional Programming)
-        // FunctionaL programming is a specialized type of declarative programming
+        // FunctionalL programming is a specialized type of declarative programming
         list.stream()
                 .filter(movie -> movie.getLikes()>10)
                 .count();

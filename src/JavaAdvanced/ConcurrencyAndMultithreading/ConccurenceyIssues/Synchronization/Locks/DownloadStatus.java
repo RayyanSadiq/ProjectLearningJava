@@ -1,4 +1,4 @@
-package JavaAdvanced.ConcurrencyAndMultithreading.ConccurenceyIssues.Synchronization;
+package JavaAdvanced.ConcurrencyAndMultithreading.ConccurenceyIssues.Synchronization.Locks;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -17,13 +17,6 @@ public class DownloadStatus {
     // You have the same concept in databases as well. I talked about this in my ultimate SQL course. We have the same code
     // as before, we are sharing a single status object across many download tasks. If you run this program, we have a race
     // condition because every time we see a different value. So multiple threads are racing to update, the total bytes fill.
-
-
-
-
-
-
-
 
 
     private int totalBytes;

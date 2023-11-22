@@ -1,4 +1,4 @@
-package JavaAdvanced.ConcurrencyAndMultithreading.ConccurenceyIssues.Synchronization;
+package JavaAdvanced.ConcurrencyAndMultithreading.ConccurenceyIssues.Adders;
 
 public class DownloadFileTask implements Runnable{
 
@@ -21,8 +21,7 @@ public class DownloadFileTask implements Runnable{
             };
 
             status.incrementTotalByte();
-
-            System.out.println("Download byte "+ i);
+            //System.out.println("Download byte "+ i);
         }
     }
 }

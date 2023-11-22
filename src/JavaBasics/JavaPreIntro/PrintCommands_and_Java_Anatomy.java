@@ -1,4 +1,4 @@
-package JavaPreIntro;
+package JavaBasics.JavaPreIntro;
 
 public class PrintCommands_and_Java_Anatomy { // public is a type of access modifier which means if it is accessible or
     // not to other methods or classes. "class" defines the main class of this script. The main class, which is the
