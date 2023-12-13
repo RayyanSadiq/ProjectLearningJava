@@ -1,4 +1,4 @@
-package JavaAdvanced.Streams;
+package JavaAdvanced.Streams.Streams;
 
 public class Movie {
 
@@ -16,4 +16,7 @@ public class Movie {
         return likes;
     }
 
+    public String getName() {
+        return name;
+    }
 }

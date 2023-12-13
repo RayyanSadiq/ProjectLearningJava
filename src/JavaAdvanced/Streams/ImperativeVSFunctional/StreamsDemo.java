@@ -1,4 +1,4 @@
-package JavaAdvanced.Streams;
+package JavaAdvanced.Streams.ImperativeVSFunctional;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class StreamsDemo {
         );
 
 
-        // Imperative Programming
+        // Imperative Programming - How something should be done
         int count = 0;
         for(var item : list){
             if (item.getLikes()>10){
@@ -20,10 +20,17 @@ public class StreamsDemo {
             }
         }
 
-        // Declarative programming (Functional Programming)
-        // FunctionalL programming is a specialized type of declarative programming
+        // Declarative programming (Functional Programming) - What needs to be done
+
+        // Streams were introduced in java to process a collection of data in a declarative, or more accurately
+        // A functional way
+
+        // Functional programming is a specialized type of declarative programming, but brings with it additional
+        // concepts
+
         list.stream()
                 .filter(movie -> movie.getLikes()>10)
                 .count();
+
     }
 }

@@ -12,6 +12,7 @@ public abstract class UIControl extends Object { //here UIControl class is inher
     // descendant classes.
     private boolean isEnabled;
 
+
     public  UIControl (boolean isEnabled ) {
         this.isEnabled = isEnabled;
     }

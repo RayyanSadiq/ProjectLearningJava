@@ -1,0 +1,33 @@
+Streams Table of Contents:
+
+    ImperativeVSFunctional:
+        - Movie
+            - demo class
+
+        - StreamsDemo
+            - A brief explanation of the differences between Functional and Imperative Programming
+
+    Streams:
+        - Movie
+            - demo class
+
+        - CreatingStreams
+            -
+
+        - MappingStreams
+            -
+
+        - FilteringStreams
+            -
+
+        - SlicingStreams
+            -
+
+        - SortingStreams
+            -
+
+        - GettingUniqueElements
+            -
+
+        - PeekingElements
+            -
