@@ -19,4 +19,10 @@ public class Movie {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return
+                "name=" + name + ' ' + "likes=" + likes;
+    }
 }
