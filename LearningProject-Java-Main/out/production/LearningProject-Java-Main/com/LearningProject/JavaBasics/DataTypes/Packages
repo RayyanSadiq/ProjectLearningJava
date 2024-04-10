@@ -1,0 +1,10 @@
+In Java, packages serve as containers for related classes and interfaces, aiding in organizing and managing code.
+Understanding naming conventions and related concepts is crucial for creating well-structured and maintainable Java projects.
+
+Naming Conventions:
+
+Package Naming: Packages should be named using a reverse domain name, e.g., com.example.project. This helps prevent
+naming conflicts and provides a clear hierarchy.
+
+Package Names in Lowercase: Package names should be all lowercase to maintain consistency and readability.
+Avoid Single Character Package Names: Descriptive names are preferred over short or single character names to enhance code clarity.

@@ -1,0 +1,107 @@
+Object oriented programming is a paradigm in which that everything is based on the concepts of objects. These objects
+are units that hold:
+
+- data (state)
+- methods (behaviors)
+
+methods are actually functions that are made and used inside of classes, these methods are what we use to modify the
+data or state of an object.
+
+So in object oriented programming you bring the data and methods together that operate in a single object. In contrast
+we have something called functional programming which takes the opposite approach, in this paradigm we assume data and
+behavior are fundamentally different so we keep them separate.
+
+Some benefits of Object-Oriented-Programming, is that we can reduce complexity by breaking down a single large complex
+application to smaller and more manageable and easier to maintain objects. If an object is not working properly, then we
+can focus on the code for that object, not the entire application. Another benefit is that we will have more
+opportunities to reuse code, because once we test and use an object, we can use it for other applications.
+
+In object oriented programming, we depend heavily on something called classes. Classes and objects are the building
+blocks for com.LearningProject.OOP. Classes are actually blueprints or templates for creating objects. For example we have a Class called
+car, and in this class we will define everything we will need to know about the car.
+
+                                                             |--------------------------------------|
+                                                             |                Fields                |
+So a car will have attributes like if it has                 |--------------------------------------|
+started or not, it's current speed, or what                  | *isStarted                           |
+current gear is on. We implement these                       | *currentSpeed                        |
+attributes using fields which are basically                  | *currentGear                         |
+variables defined in a class.                                |                                      |
+                                                             |______________________________________|
+                                                             |                Methods               |
+                                                             |--------------------------------------|
+The car can also have behaviors, also known                  | *start()                             |
+as methods, like stop(), start(), brake(),                   | *stop()                              |
+changeGear(), and so on. When we call these                  | *headLightsOn()                      |
+methods the state of the object also changes,                | *brake()                             |
+for example when we call changeGear(), the value of          |______________________________________|
+the currentGear field changes.
+
+So then, this car class is an object or blueprint for creating new objects, and an object is an instance of a class, so
+we can create multiple instances based on this template like car1, car2, and car3 which will all have the same fields
+and methods as the class, but they are independent of one another, each car object will occupy a separate space in
+memory and can all have varying states from each other.
+
+
+Now before Object Oriented programming, we had procedural programming which was basically a set of functions. We had
+data stored in a lot of variables and functions that operated on the data. This programming paradigm is very simplistic
+and easy to grasp, which is why it is often the first style of programming first taught to many beginners. However, as
+our applications and programs grow, we will have too much functions and variables to keep track of and everything will
+be all over the place. In fact, procedural programming often leads to copying and pasting lines of code over and over
+again which is a time consuming process. The worst part it is adding or changing anything could lead to a mess or your
+code potentially breaking and causing errors left and right. This is because of the interdependency present between the
+functions that it becomes an large issue.
+
+Object oriented programming, however, fixes this problem, we unify variables and functions in to a single unit
+called objects. Objects are instances of classes which as mentioned before are blueprints for these objects.
+In object Oriented programming as we discussed objects can be used over and over again which makes our code very
+reusable as we can make many instances of one object instead of copy pasting code like in procedural programming.
+The code all becomes much maintainable as when we want to change or update our class, we don't have to change
+every class or object line by line, we just have to change the base class. In procedural programming functions are so
+interconnected, adding new things or updates becomes very time consuming and hard to deal with since we have to change
+potentially every line of code. An example would be if at the beginning of a program a variable was set to equal the
+value of 1. If other sub-procedures of the program rely on that variable equaling 1 to function properly they will also
+need to be edited. The effect of encapsulation in com.LearningProject.OOP allows us to change a class without affecting the entire code
+since it is self contained, making it easier to fix bugs or potential problems that may arise in a class. Another thing
+to mention is that Procedural Programming does not offer any method of hiding data, which means it is very insecure when
+compared with Object Oriented Programming, which is possible with Object Oriented Programming due to the abstraction.
+Thus, offering more security than Procedural Programming.
+------------------------------------------------------------------------------------------------------------------------
+
+The Encapsulation and Abstraction directory covers:
+- creating classes
+- creating objects
+- memory allocation
+- Encapsulation
+- getters and setters
+- Abstraction
+- coupling
+- reducing coupling
+- method overloading
+- constructor overloading
+- static members
+
+The Inheritance and Polymorphism directory covers:
+ - Inheritance
+ - The built-in Object class in java
+ - Constructors and Inheritance
+ - Access Modifiers
+ - Overriding methods
+ - upcasting and down-casting classes
+ - comparing objects
+ - overriding equal and hashcode methods
+ - Polymorphism
+ - Abstract methods and methods
+ - Final classes and methods
+
+
+
+
+
+
+
+
+
+
+
+

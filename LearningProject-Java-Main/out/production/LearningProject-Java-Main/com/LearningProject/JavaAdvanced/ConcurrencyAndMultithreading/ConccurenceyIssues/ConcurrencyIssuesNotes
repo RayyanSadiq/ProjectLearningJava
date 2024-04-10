@@ -1,0 +1,24 @@
+In all the examples I've shown you so far, our download threads have been isolated from each other. But in a real world
+scenario, sometimes our threads may need to access and modify shared resources. For example, when downloading files, each
+thread may report the number of bytes it has downloaded to a shared object.
+
+With this object, we can keep track of the entire download progress and report it to the user. If multiple threads access
+the same object, and at least one of them changes this object, we're going to run into a couple of issues. The first
+issue happens when multiple threads try to modify the same data at the same time.It's like having one burger and three people wanting to eat 
+it at the same time. It's not going to work. So if multiple threads try to change the same data, we may get wrong results 
+or our application may crash. When this happens, we say we have a race condition, which means multiple threads are racing 
+or competing to modify some data.
+
+Another issue happens when one thread changes the shared data, but the changes are not visible to other threads. 
+So different threads will have different views of the shared data. This is what we call a visibility problem.
+So if multiple threads access the same data, and at least one of them tries to change it, we're going to have some problems.
+If they only want to read the shared data, that's perfectly fine. And by the way, these problems are not specific to Java.
+These are properties of concurrent systems. We have the same problem in databases because multiple users can modify the
+same data at the same time.
+
+So, if you want to build a multi threaded application, you need to have a proper understanding of these problems and
+know how to prevent them. You should write code that can be safely executed by many threads in parallel. This is what
+we call thread safe code. It's one of those terms that you see in the Java documentation a lot.
+
+Some classes are thread safe, which means they can be safely used across many parallel threads. We'll talk about this
+later. So in the next video, I'm going to show you concurrency problems in action.
