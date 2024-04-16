@@ -2,7 +2,7 @@ package com.LearningProject.JavaBasics.JavaPreIntro;
 
 public class BasicJavaAnatomy { // public is a type of access modifier which means if it is accessible or
     // not to other methods or classes. "class" defines the main class of this script. The main class must be always
-    // named after the file name.
+    // named after the dfile name.
 
     // Classes start with a '{' and must close with '}'.
 
